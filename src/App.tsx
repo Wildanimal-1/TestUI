@@ -1,8 +1,11 @@
 import { ThemeProvider } from './contexts/ThemeContext';
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext';
+import { SystemProvider } from './contexts/SystemContext';
 import Sidebar from './components/Sidebar';
 import SecondarySidebar from './components/SecondarySidebar';
 import Header from './components/Header';
+import ContextBar from './components/ContextBar';
+import DetailPanel from './components/DetailPanel';
 import Dashboard from './pages/Dashboard';
 import TrustProfile from './pages/TrustProfile';
 import TrustSignals from './pages/TrustSignals';
@@ -109,19 +112,21 @@ function AppContent() {
   const config = pageConfig[currentPage] || pageConfig.dashboard;
 
   return (
-    <div className="flex h-screen bg-[var(--bg-secondary)]">
+    <div className="flex h-screen bg-[var(--bg-secondary)] overflow-hidden">
       <Sidebar />
       {currentDomain === 'trust' && (
         <SecondarySidebar items={trustNavItems} title="Trust Management" />
       )}
-      <div className="flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         <Header title={config.title} breadcrumbs={config.breadcrumbs} />
+        <ContextBar />
         <main className="flex-1 overflow-y-auto">
           <div className="max-w-[1400px] mx-auto px-4 py-4">
             {config.content}
           </div>
         </main>
       </div>
+      <DetailPanel />
     </div>
   );
 }
@@ -129,9 +134,11 @@ function AppContent() {
 function App() {
   return (
     <ThemeProvider>
-      <NavigationProvider>
-        <AppContent />
-      </NavigationProvider>
+      <SystemProvider>
+        <NavigationProvider>
+          <AppContent />
+        </NavigationProvider>
+      </SystemProvider>
     </ThemeProvider>
   );
 }
