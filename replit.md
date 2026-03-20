@@ -86,15 +86,15 @@ Nav items with a `domain` property trigger the secondary sidebar when clicked.
 | `trust-timeline` | Trust Timeline | Historical trust events |
 | `trust-integrity` | Integrity | Integrity checks |
 | `trust-capabilities` | Capabilities | Feature flags by trust level |
-| `developers-overview` | Developer Overview | Placeholder |
+| `developers-overview` | Developer Overview | API surface, rate limits, endpoint table |
 | `api-keys` | API Keys | Key management table |
-| `settings` | Settings | Placeholder |
-| `profile` | Profile | Placeholder |
+| `settings` | Settings | Webhooks, CORS, rate limits, IP allowlist |
+| `profile` | Profile | Identity, organization, data & privacy |
 | `public-profile` | Public Profile | Public trust identity surface |
-| `security` | Security | Placeholder |
-| `preferences` | Preferences | Placeholder |
-| `reviews` | Reviews | Placeholder |
-| `system` | System | Placeholder |
+| `security` | Security | Auth methods, sessions table, security events |
+| `preferences` | Preferences | Display, notifications, regional settings |
+| `reviews` | Reviews | Admin review queue + decisions table |
+| `system` | System | System info, services health, config, maintenance |
 
 ## Running
 

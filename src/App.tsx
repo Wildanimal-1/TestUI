@@ -19,7 +19,14 @@ import APIKeys from './pages/APIKeys';
 import Verification from './pages/Verification';
 import VerificationDetail from './pages/VerificationDetail';
 import PublicProfile from './pages/PublicProfile';
-import PlaceholderPage from './pages/PlaceholderPage';
+import AccountProfile from './pages/AccountProfile';
+import Security from './pages/Security';
+import Preferences from './pages/Preferences';
+import DeveloperOverview from './pages/DeveloperOverview';
+import DeveloperSettings from './pages/DeveloperSettings';
+import AdminReviews from './pages/AdminReviews';
+import AdminSystem from './pages/AdminSystem';
+
 
 function AppContent({ onSignOut }: { onSignOut: () => void }) {
   const { currentPage, currentDomain } = useNavigation();
@@ -82,7 +89,7 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
     'developers-overview': {
       title: 'Developer Overview',
       breadcrumbs: [{ label: 'Developers' }, { label: 'Overview' }],
-      content: <PlaceholderPage title="Developer Overview" description="API documentation and integration guides" />,
+      content: <DeveloperOverview />,
     },
     'api-keys': {
       title: 'API Keys',
@@ -92,12 +99,12 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
     settings: {
       title: 'Settings',
       breadcrumbs: [{ label: 'Developers' }, { label: 'Settings' }],
-      content: <PlaceholderPage title="Developer Settings" description="Configure webhooks, rate limits, and integrations" />,
+      content: <DeveloperSettings />,
     },
     profile: {
       title: 'Profile',
       breadcrumbs: [{ label: 'Account' }, { label: 'Profile' }],
-      content: <PlaceholderPage title="Account Profile" description="Manage your personal information and preferences" />,
+      content: <AccountProfile />,
     },
     'public-profile': {
       title: 'Public Profile',
@@ -107,22 +114,22 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
     security: {
       title: 'Security',
       breadcrumbs: [{ label: 'Account' }, { label: 'Security' }],
-      content: <PlaceholderPage title="Security Settings" description="Configure two-factor authentication and security options" />,
+      content: <Security />,
     },
     preferences: {
       title: 'Preferences',
       breadcrumbs: [{ label: 'Account' }, { label: 'Preferences' }],
-      content: <PlaceholderPage title="Preferences" description="Customize your experience and notification settings" />,
+      content: <Preferences />,
     },
     reviews: {
       title: 'Reviews',
       breadcrumbs: [{ label: 'Admin' }, { label: 'Reviews' }],
-      content: <PlaceholderPage title="Admin Reviews" description="Review and approve pending administrative actions" />,
+      content: <AdminReviews />,
     },
     system: {
       title: 'System',
       breadcrumbs: [{ label: 'Admin' }, { label: 'System' }],
-      content: <PlaceholderPage title="System Administration" description="Manage system-wide configuration and monitoring" />,
+      content: <AdminSystem />,
     },
   };
 

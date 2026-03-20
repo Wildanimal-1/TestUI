@@ -10,7 +10,9 @@ import {
   User,
   Lock,
   Sliders,
-  Database
+  Database,
+  ClipboardList,
+  Server
 } from 'lucide-react';
 
 interface NavItem {
@@ -55,6 +57,13 @@ const navigation: NavSection[] = [
       { id: 'public-profile', label: 'Public Profile', icon: Shield },
       { id: 'security', label: 'Security', icon: Lock },
       { id: 'preferences', label: 'Preferences', icon: Sliders },
+    ],
+  },
+  {
+    label: 'ADMIN',
+    items: [
+      { id: 'reviews', label: 'Reviews', icon: ClipboardList },
+      { id: 'system', label: 'System', icon: Server },
     ],
   },
 ];
