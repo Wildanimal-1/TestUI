@@ -1,3 +1,4 @@
+import { RotateCcw } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 function Toggle({ enabled }: { enabled: boolean }) {
@@ -36,6 +37,19 @@ export default function Preferences() {
 
   return (
     <div>
+      {/* Command Bar */}
+      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[var(--border-primary)]">
+        <button
+          disabled
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] text-[var(--text-secondary)] opacity-40 cursor-not-allowed"
+        >
+          <RotateCcw className="w-3 h-3" />
+          Reset to defaults
+        </button>
+        <div className="flex-1" />
+        <span className="text-[10px] font-mono text-[var(--text-tertiary)]">Read-only environment</span>
+      </div>
+
       {/* Display */}
       <div className="border border-[var(--border-primary)] mb-4">
         <SectionHeader title="Display" />

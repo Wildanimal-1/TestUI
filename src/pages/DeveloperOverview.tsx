@@ -54,21 +54,8 @@ export default function DeveloperOverview() {
         </div>
       </div>
 
-      {/* Rate Limits */}
-      <div className="grid grid-cols-3 border border-[var(--border-primary)] divide-x divide-[var(--border-primary)] mb-4">
-        {RATE_LIMITS.map((r) => (
-          <div key={r.label} className="px-4 py-2.5">
-            <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">{r.label}</div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-xl font-semibold text-[var(--text-primary)] tabular-nums">{r.value}</span>
-              <span className="text-xs text-[var(--text-tertiary)]">{r.used} used</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
       {/* Endpoints */}
-      <div className="border border-[var(--border-primary)]">
+      <div className="border border-[var(--border-primary)] mb-4">
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">API Endpoints</h2>
         </div>
@@ -96,6 +83,19 @@ export default function DeveloperOverview() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Rate Limits */}
+      <div className="grid grid-cols-3 border border-[var(--border-primary)] divide-x divide-[var(--border-primary)]">
+        {RATE_LIMITS.map((r) => (
+          <div key={r.label} className="px-4 py-2.5">
+            <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">{r.label}</div>
+            <div className="flex items-baseline gap-2">
+              <span className="text-xl font-semibold text-[var(--text-primary)] tabular-nums">{r.value}</span>
+              <span className="text-xs text-[var(--text-tertiary)]">{r.used} used</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

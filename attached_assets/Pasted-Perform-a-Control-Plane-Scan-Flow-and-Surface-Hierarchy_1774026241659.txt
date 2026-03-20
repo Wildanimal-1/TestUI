@@ -1,0 +1,162 @@
+Perform a Control-Plane Scan Flow and Surface Hierarchy refinement pass.
+
+Goal: Make the console feel unmistakably like a mission-critical infrastructure control plane used by operators (Stripe / AWS / Cloudflare style), not a generic admin dashboard.
+
+Constraints:
+
+• UI-only — no logic, routing, or data changes  
+• Preserve all pages, navigation, and components  
+• Do not add new features  
+• Keep placeholder/static data  
+• Maintain flat design (no shadows, gradients, decorative effects)  
+• Preserve command bars and panel structure  
+
+---
+
+SECTION 1 — ESTABLISH CLEAR SCAN ENTRY POINTS
+
+Each page must have a visually obvious starting point.
+
+Ensure:
+
+• The page title area is dominant but not oversized  
+• The command bar clearly reads as the primary action surface  
+• The main content begins immediately below with no ambiguity  
+• Remove visual competition between header, command bar, and metrics  
+
+Operators should instantly know:
+
+“Where do I start on this page?”
+
+---
+
+SECTION 2 — PRIMARY vs SECONDARY CONTENT ZONES
+
+Separate information into tiers:
+
+PRIMARY ZONE  
+Core operational information (tables, key state, critical config)
+
+SECONDARY ZONE  
+Supporting information (history, notes, metadata, diagnostics)
+
+TERTIARY ZONE  
+Low-priority details
+
+Visually differentiate zones using:
+
+• Spacing  
+• Muted headers  
+• Subtle separators  
+• Layout grouping  
+
+Avoid presenting all sections with equal visual weight.
+
+---
+
+SECTION 3 — PANEL RHYTHM (CONTROL-PLANE CADENCE)
+
+Infrastructure consoles follow a predictable rhythm:
+
+Command bar  
+↓  
+Primary surface  
+↓  
+Secondary surface  
+↓  
+Additional context  
+
+Refactor pages to follow this cadence consistently.
+
+Avoid random ordering of sections.
+
+---
+
+SECTION 4 — REDUCE “STACKED DOCUMENT” FEEL
+
+Current pages still resemble a document with sections rather than a system interface.
+
+Fix by:
+
+• Avoiding large uninterrupted vertical flows  
+• Breaking long pages into functional clusters  
+• Grouping related sections tightly  
+• Increasing separation between unrelated clusters  
+
+Goal: Each cluster feels like a distinct operational surface.
+
+---
+
+SECTION 5 — METRIC & STATUS VISIBILITY
+
+Important system state should be immediately visible.
+
+Ensure:
+
+• Metrics are clearly distinguishable from configuration data  
+• Status indicators are easy to locate  
+• Critical values are not buried in tables  
+• Read-only state is visually clear  
+
+---
+
+SECTION 6 — ACTION DISCOVERABILITY WITHOUT CLUTTER
+
+Actions should be easy to find but never overwhelming.
+
+Refine so:
+
+• Command bars contain global actions  
+• Section footers contain local actions  
+• Row actions remain right-aligned  
+• No action requires visual hunting  
+
+---
+
+SECTION 7 — CONSISTENT INFORMATION DENSITY ACROSS DOMAINS
+
+Some pages may still be denser or looser than others.
+
+Standardize:
+
+• Row heights  
+• Label sizes  
+• Metadata presentation  
+• Section spacing  
+
+Trust, Verification, Developers, Account, and Admin domains should feel like parts of one system.
+
+---
+
+SECTION 8 — REMOVE PROFILE-LIKE PRESENTATION
+
+Pages must feel like system configuration and inspection surfaces, not user profiles.
+
+Reduce emphasis on:
+
+• Avatar-style layouts  
+• Personal identity framing  
+• Narrative descriptions  
+• Visual centering  
+
+Emphasize:
+
+• System identifiers  
+• Capability state  
+• Configuration  
+• Auditability  
+
+---
+
+OUTPUT REQUIREMENT
+
+Refactor layouts so the console feels:
+
+✔ Operational  
+✔ Calm but authoritative  
+✔ Highly scannable  
+✔ Clearly structured  
+✔ Built for continuous use  
+✔ Comparable to real infrastructure control planes  
+
+Do NOT redesign visually — only refine structure, grouping, and hierarchy.

@@ -61,7 +61,7 @@ export default function Security() {
           <div className="px-3 py-2.5 flex items-center justify-between hover:bg-[var(--bg-secondary)]">
             <div>
               <div className="text-xs font-medium text-[var(--text-primary)]">Two-factor authentication</div>
-              <div className="text-[10px] text-[var(--text-tertiary)] mt-0.5">Add an extra layer of security to your account</div>
+              <div className="text-[10px] font-mono text-[var(--text-tertiary)] mt-0.5">TOTP, SMS, or hardware key</div>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-neutral-500/10 text-neutral-500 dark:text-neutral-400">
@@ -75,7 +75,7 @@ export default function Security() {
           <div className="px-3 py-2.5 flex items-center justify-between hover:bg-[var(--bg-secondary)]">
             <div>
               <div className="text-xs font-medium text-[var(--text-primary)]">Recovery codes</div>
-              <div className="text-[10px] text-[var(--text-tertiary)] mt-0.5">Used to access your account if you lose your 2FA device</div>
+              <div className="text-[10px] font-mono text-[var(--text-tertiary)] mt-0.5">Emergency credential — requires active 2FA configuration</div>
             </div>
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-neutral-500/10 text-neutral-500 dark:text-neutral-400">

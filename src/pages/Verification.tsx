@@ -1,4 +1,4 @@
-import { CheckCircle2, XCircle, Mail, Phone, Fingerprint, Globe, MapPin, ArrowRight } from 'lucide-react';
+import { CheckCircle2, XCircle, Mail, Phone, Fingerprint, Globe, MapPin, ArrowRight, Download } from 'lucide-react';
 import { useNavigation } from '../contexts/NavigationContext';
 
 const METHODS = [
@@ -79,6 +79,16 @@ export default function Verification() {
 
   return (
     <div>
+      {/* Command Bar */}
+      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[var(--border-primary)]">
+        <button className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
+          <Download className="w-3 h-3" />
+          Export Status
+        </button>
+        <div className="flex-1" />
+        <span className="text-[10px] font-mono text-[var(--text-tertiary)]">{verifiedCount}/{total} methods verified</span>
+      </div>
+
       {/* Overview */}
       <div className="grid grid-cols-3 border border-[var(--border-primary)] divide-x divide-[var(--border-primary)] mb-4">
         <div className="px-4 py-2.5">

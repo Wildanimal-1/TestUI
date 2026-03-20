@@ -26,7 +26,7 @@ const BREAKDOWN = [
 ];
 
 export default function TrustProfile() {
-  const [capExpanded, setCapExpanded] = useState(false);
+  const [capExpanded, setCapExpanded] = useState(true);
 
   return (
     <div>
