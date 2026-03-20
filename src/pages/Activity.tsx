@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Filter, Download, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Activity() {
-  const [filterOpen, setFilterOpen] = useState(false);
   const [selectedType, setSelectedType] = useState('all');
   const [selectedStatus, setSelectedStatus] = useState('all');
 
@@ -117,21 +116,13 @@ export default function Activity() {
   ];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => setFilterOpen(!filterOpen)}
-            className="flex items-center gap-2 px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300"
-          >
-            <Filter className="w-4 h-4" />
-            Filters
-          </button>
-
+        <div className="flex items-center gap-2">
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-2.5 py-1.5 text-xs border border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             {eventTypes.map((type) => (
               <option key={type.value} value={type.value}>
@@ -143,7 +134,7 @@ export default function Activity() {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-2.5 py-1.5 text-xs border border-[var(--border-primary)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:ring-1 focus:ring-blue-500"
           >
             {statuses.map((status) => (
               <option key={status.value} value={status.value}>
@@ -153,71 +144,71 @@ export default function Activity() {
           </select>
         </div>
 
-        <button className="flex items-center gap-2 px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
-          <Download className="w-4 h-4" />
+        <button className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
+          <Download className="w-3.5 h-3.5" />
           Export
         </button>
       </div>
 
-      <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg">
+      <div className="bg-[var(--bg-primary)] border border-[var(--border-primary)]">
         <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead className="bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-800">
+          <table className="w-full text-xs">
+            <thead className="bg-[var(--bg-secondary)] border-b border-[var(--border-primary)]">
               <tr>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                   Timestamp
                 </th>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                   Event Type
                 </th>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                   Resource
                 </th>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                   Status
                 </th>
-                <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                   IP Address
                 </th>
-                <th className="px-4 py-2 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wide">
                   Event ID
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+            <tbody className="divide-y divide-[var(--border-primary)]">
               {activities.map((activity) => (
-                <tr key={activity.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
-                  <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100 font-mono whitespace-nowrap">
+                <tr key={activity.id} className="hover:bg-[var(--bg-secondary)] cursor-pointer">
+                  <td className="px-3 py-2 text-[var(--text-primary)] font-mono whitespace-nowrap">
                     {activity.timestamp}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-3 py-2">
                     <div>
-                      <p className="text-sm text-gray-900 dark:text-gray-100 font-medium">{activity.type}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">{activity.details}</p>
+                      <p className="text-[var(--text-primary)] font-medium">{activity.type}</p>
+                      <p className="text-[var(--text-tertiary)] mt-0.5">{activity.details}</p>
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 font-mono">
+                  <td className="px-3 py-2 text-[var(--text-secondary)] font-mono">
                     {activity.resource}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="px-3 py-2">
                     <span
-                      className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
+                      className={`inline-flex items-center px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
                         activity.status === 'success'
-                          ? 'bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-400'
+                          ? 'bg-green-500/10 text-green-600 dark:text-green-500'
                           : activity.status === 'error'
-                          ? 'bg-red-100 dark:bg-red-950/50 text-red-700 dark:text-red-400'
+                          ? 'bg-red-500/10 text-red-600 dark:text-red-500'
                           : activity.status === 'warning'
-                          ? 'bg-yellow-100 dark:bg-yellow-950/50 text-yellow-700 dark:text-yellow-400'
-                          : 'bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-400'
+                          ? 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-500'
+                          : 'bg-blue-500/10 text-blue-600 dark:text-blue-500'
                       }`}
                     >
                       {activity.status}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300 font-mono">
+                  <td className="px-3 py-2 text-[var(--text-secondary)] font-mono">
                     {activity.ip}
                   </td>
-                  <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 font-mono text-right">
+                  <td className="px-3 py-2 text-[var(--text-tertiary)] font-mono text-right">
                     {activity.id}
                   </td>
                 </tr>
@@ -226,30 +217,30 @@ export default function Activity() {
           </table>
         </div>
 
-        <div className="px-4 py-3 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            Showing <span className="font-medium text-gray-700 dark:text-gray-300">1-10</span> of{' '}
-            <span className="font-medium text-gray-700 dark:text-gray-300">1,247</span> events
+        <div className="px-3 py-2 border-t border-[var(--border-primary)] flex items-center justify-between">
+          <div className="text-xs text-[var(--text-tertiary)]">
+            Showing <span className="font-mono text-[var(--text-secondary)]">1-10</span> of{' '}
+            <span className="font-mono text-[var(--text-secondary)]">1,247</span> events
           </div>
-          <div className="flex items-center gap-2">
-            <button className="p-1.5 border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 disabled:opacity-50">
-              <ChevronLeft className="w-4 h-4" />
+          <div className="flex items-center gap-1">
+            <button className="p-1 border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-tertiary)] disabled:opacity-50">
+              <ChevronLeft className="w-3.5 h-3.5" />
             </button>
-            <button className="px-3 py-1.5 text-sm bg-blue-600 dark:bg-blue-500 text-white rounded-md">
+            <button className="px-2 py-1 text-xs bg-blue-600 dark:bg-blue-500 text-white">
               1
             </button>
-            <button className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+            <button className="px-2 py-1 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
               2
             </button>
-            <button className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+            <button className="px-2 py-1 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
               3
             </button>
-            <span className="px-2 text-gray-500 dark:text-gray-400">...</span>
-            <button className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300">
+            <span className="px-1 text-[var(--text-tertiary)]">...</span>
+            <button className="px-2 py-1 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
               125
             </button>
-            <button className="p-1.5 border border-gray-200 dark:border-gray-700 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400">
-              <ChevronRight className="w-4 h-4" />
+            <button className="p-1 border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-tertiary)]">
+              <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

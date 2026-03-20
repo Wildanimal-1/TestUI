@@ -13,42 +13,42 @@ export default function Header({ title, breadcrumbs }: HeaderProps) {
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
-    <header className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-30">
-      <div className="flex items-center justify-between px-6 py-3">
-        <div className="flex items-center gap-4 flex-1">
+    <header className="bg-[var(--bg-primary)] border-b border-[var(--border-primary)] sticky top-0 z-30">
+      <div className="flex items-center justify-between px-4 py-2.5">
+        <div className="flex items-center gap-3 flex-1">
           {breadcrumbs && breadcrumbs.length > 0 && (
-            <nav className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <nav className="flex items-center gap-1.5 text-xs text-[var(--text-tertiary)]">
               {breadcrumbs.map((crumb, index) => (
-                <span key={index} className="flex items-center gap-2">
+                <span key={index} className="flex items-center gap-1.5">
                   {index > 0 && <span>/</span>}
-                  <span className={index === breadcrumbs.length - 1 ? 'text-gray-900 dark:text-gray-100' : ''}>
+                  <span className={index === breadcrumbs.length - 1 ? 'text-[var(--text-primary)]' : ''}>
                     {crumb.label}
                   </span>
                 </span>
               ))}
             </nav>
           )}
-          <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
+          <h1 className="text-sm font-medium text-[var(--text-primary)]">
             {title}
           </h1>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <div className="relative">
-            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)]" />
             <input
               type="text"
               placeholder="Search..."
-              className="w-64 pl-9 pr-3 py-1.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
+              className="w-56 pl-8 pr-2.5 py-1.5 text-xs bg-[var(--bg-secondary)] border border-[var(--border-primary)] rounded focus:outline-none focus:ring-1 focus:ring-blue-500 text-[var(--text-primary)] placeholder-[var(--text-tertiary)]"
             />
           </div>
 
           <button
             onClick={toggleTheme}
-            className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+            className="p-1.5 text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] rounded transition-colors"
             aria-label="Toggle theme"
           >
-            {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+            {theme === 'light' ? <Moon className="w-3.5 h-3.5" /> : <Sun className="w-3.5 h-3.5" />}
           </button>
 
           <div className="relative">
@@ -57,30 +57,30 @@ export default function Header({ title, breadcrumbs }: HeaderProps) {
                 setShowNotifications(!showNotifications);
                 setShowUserMenu(false);
               }}
-              className="relative p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+              className="relative p-1.5 text-[var(--text-tertiary)] hover:bg-[var(--bg-secondary)] rounded transition-colors"
               aria-label="Notifications"
             >
-              <Bell className="w-4 h-4" />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+              <Bell className="w-3.5 h-3.5" />
+              <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
             </button>
 
             {showNotifications && (
-              <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
-                <div className="p-3 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100">Notifications</h3>
+              <div className="absolute right-0 mt-1 w-72 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded shadow-xl">
+                <div className="p-2.5 border-b border-[var(--border-primary)]">
+                  <h3 className="text-xs font-medium text-[var(--text-primary)]">Notifications</h3>
                 </div>
-                <div className="max-h-96 overflow-y-auto">
-                  <div className="p-3 border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
-                    <p className="text-sm text-gray-900 dark:text-gray-100">API key expires in 7 days</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">2 hours ago</p>
+                <div className="max-h-80 overflow-y-auto">
+                  <div className="p-2.5 border-b border-[var(--border-secondary)] hover:bg-[var(--bg-secondary)] cursor-pointer">
+                    <p className="text-xs text-[var(--text-primary)]">API key expires in 7 days</p>
+                    <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">2 hours ago</p>
                   </div>
-                  <div className="p-3 border-b border-gray-100 dark:border-gray-700/50 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
-                    <p className="text-sm text-gray-900 dark:text-gray-100">Trust score updated</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">5 hours ago</p>
+                  <div className="p-2.5 border-b border-[var(--border-secondary)] hover:bg-[var(--bg-secondary)] cursor-pointer">
+                    <p className="text-xs text-[var(--text-primary)]">Trust score updated</p>
+                    <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">5 hours ago</p>
                   </div>
-                  <div className="p-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer">
-                    <p className="text-sm text-gray-900 dark:text-gray-100">New verification completed</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">1 day ago</p>
+                  <div className="p-2.5 hover:bg-[var(--bg-secondary)] cursor-pointer">
+                    <p className="text-xs text-[var(--text-primary)]">New verification completed</p>
+                    <p className="text-[10px] text-[var(--text-tertiary)] mt-0.5">1 day ago</p>
                   </div>
                 </div>
               </div>
@@ -93,33 +93,33 @@ export default function Header({ title, breadcrumbs }: HeaderProps) {
                 setShowUserMenu(!showUserMenu);
                 setShowNotifications(false);
               }}
-              className="flex items-center gap-2 px-2 py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors"
+              className="flex items-center gap-1.5 px-1.5 py-1 hover:bg-[var(--bg-secondary)] rounded transition-colors"
             >
-              <div className="w-7 h-7 bg-blue-600 dark:bg-blue-700 rounded-full flex items-center justify-center">
-                <span className="text-xs font-medium text-white">JD</span>
+              <div className="w-6 h-6 bg-neutral-700 dark:bg-neutral-600 rounded-full flex items-center justify-center">
+                <span className="text-[10px] font-medium text-white">JD</span>
               </div>
-              <ChevronDown className="w-3 h-3 text-gray-600 dark:text-gray-400" />
+              <ChevronDown className="w-3 h-3 text-[var(--text-tertiary)]" />
             </button>
 
             {showUserMenu && (
-              <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
-                <div className="p-3 border-b border-gray-200 dark:border-gray-700">
-                  <p className="text-sm font-medium text-gray-900 dark:text-gray-100">John Doe</p>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">john@example.com</p>
+              <div className="absolute right-0 mt-1 w-52 bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded shadow-xl">
+                <div className="p-2.5 border-b border-[var(--border-primary)]">
+                  <p className="text-xs font-medium text-[var(--text-primary)]">John Doe</p>
+                  <p className="text-[10px] text-[var(--text-tertiary)]">john@example.com</p>
                 </div>
                 <div className="py-1">
-                  <button className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <button className="w-full text-left px-2.5 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">
                     Account Settings
                   </button>
-                  <button className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <button className="w-full text-left px-2.5 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">
                     Documentation
                   </button>
-                  <button className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <button className="w-full text-left px-2.5 py-1.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">
                     Support
                   </button>
                 </div>
-                <div className="border-t border-gray-200 dark:border-gray-700 py-1">
-                  <button className="w-full text-left px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                <div className="border-t border-[var(--border-primary)] py-1">
+                  <button className="w-full text-left px-2.5 py-1.5 text-xs text-red-600 dark:text-red-400 hover:bg-[var(--bg-secondary)]">
                     Sign Out
                   </button>
                 </div>
