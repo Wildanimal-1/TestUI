@@ -1,0 +1,160 @@
+Perform a READ-ONLY Infrastructure Control Plane Audit of this entire application.
+
+⚠️ Do NOT modify any code.
+⚠️ Do NOT redesign anything.
+⚠️ Do NOT suggest new features unless explicitly requested.
+⚠️ This is an inventory and structural assessment only.
+
+⸻
+
+Purpose
+
+I need a complete understanding of what currently exists in this console prototype so I can decide next steps.
+Treat this as an infrastructure-grade control plane similar to Stripe, AWS, Cloudflare, or Supabase dashboards.
+
+⸻
+
+Scope of Analysis
+
+Audit the system as an operator console, not as a consumer website.
+
+Analyze:
+	•	Navigation structure
+	•	Page hierarchy
+	•	Domain grouping
+	•	Layout patterns
+	•	Interaction patterns
+	•	Information exposure
+	•	Placeholder vs functional surfaces
+	•	Consistency across pages
+	•	Structural completeness
+
+⸻
+
+Required Output Format
+
+Produce a structured report with the following sections:
+
+⸻
+
+1) Route & Page Inventory
+
+List ALL pages and routes in the application.
+
+For each page include:
+	•	Route / identifier
+	•	Page title
+	•	Domain or section (Core, Trust, Developers, Account, etc.)
+	•	Purpose of the page (what task it supports)
+	•	Whether content is placeholder, mock, or functional
+	•	Whether the page is empty, partial, or populated
+
+⸻
+
+2) Navigation Topology
+
+Describe the navigation architecture:
+	•	Primary sidebar structure (groups and items)
+	•	Secondary sidebar behavior (if present)
+	•	Header navigation elements
+	•	Context bar usage (if present)
+	•	Breadcrumbs (if present)
+	•	Any hidden or conditional navigation
+
+Explain how a user moves between domains and pages.
+
+⸻
+
+3) Layout & Surface Patterns
+
+Identify the layout system used across pages:
+	•	Page container style
+	•	Use of toolbars, headers, and command bars
+	•	Table usage patterns
+	•	Detail panels or drawers
+	•	Forms and input surfaces
+	•	Metric displays
+	•	Dividers vs boxed cards
+	•	Density and spacing patterns
+
+Note whether layouts are consistent or vary significantly.
+
+⸻
+
+4) Interaction Model Inventory
+
+List all interaction types implemented:
+	•	Tables with row actions
+	•	Filters and search controls
+	•	Bulk actions
+	•	Modals or dialogs
+	•	Slide-in panels
+	•	Expandable sections
+	•	Toggle controls
+	•	Copy actions
+	•	Navigation actions
+	•	Disabled controls (placeholders)
+
+⸻
+
+5) Information Exposure Analysis
+
+Evaluate how information is presented:
+	•	Are pages minimal or overloaded?
+	•	Is functionality exposed progressively or all at once?
+	•	Are there areas showing too much capability at once?
+	•	Are surfaces focused on tasks or informational reading?
+
+Do NOT recommend changes — just describe.
+
+⸻
+
+6) Placeholder vs Real Behavior
+
+Identify areas that are clearly:
+	•	Static placeholder content
+	•	Simulated/mock functionality
+	•	Non-functional UI controls
+	•	Ready for real data integration
+	•	Missing key states (loading, empty, error)
+
+⸻
+
+7) Structural Gaps or Inconsistencies
+
+List observable gaps WITHOUT inventing new features.
+
+Examples:
+	•	Missing detail views
+	•	Pages without actionable controls
+	•	Orphan pages not reachable via navigation
+	•	Duplicate or overlapping surfaces
+	•	Inconsistent patterns between domains
+
+⸻
+
+8) Overall Control Plane Assessment
+
+Provide a neutral assessment of:
+	•	Whether the console behaves like an operational system
+	•	Coherence of domain structure
+	•	Clarity of navigation
+	•	Readiness for future data integration
+	•	Major strengths of the current structure
+	•	Major weaknesses in structure only (not aesthetics)
+
+⸻
+
+Important Constraints
+	•	This is NOT a redesign task
+	•	Do NOT produce UI suggestions
+	•	Do NOT rewrite components
+	•	Do NOT generate new layouts
+	•	Do NOT assume backend behavior
+	•	Treat everything as a prototype with placeholder data
+
+⸻
+
+Tone
+
+Write the report as if delivering to an infrastructure platform team conducting a console readiness review.
