@@ -41,7 +41,7 @@ export default function Header({ title, breadcrumbs }: HeaderProps) {
 
   return (
     <header className="bg-[var(--bg-primary)] border-b border-[var(--border-primary)] sticky top-0 z-30 shrink-0">
-      <div className="flex items-center justify-between px-4 h-10">
+      <div className="flex items-center justify-between px-4 h-10 pt-[26px] pb-[26px]">
         {/* Page title + breadcrumb */}
         <div className="flex items-center gap-2 min-w-0">
           {breadcrumbs && breadcrumbs.length > 0 && (
