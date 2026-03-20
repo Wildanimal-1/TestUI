@@ -72,7 +72,7 @@ export default function Sidebar() {
 
   return (
     <aside className="w-52 bg-[var(--bg-primary)] border-r border-[var(--border-primary)] flex flex-col h-screen">
-      <div className="px-3 py-3 border-b border-[var(--border-primary)]">
+      <div className="px-3 py-3 border-b border-[var(--border-primary)] pt-[16px] pb-[16px]">
         <div className="flex items-center gap-2">
           <Database className="w-4 h-4 text-[var(--text-secondary)]" />
           <span className="font-medium text-sm text-[var(--text-primary)]">
