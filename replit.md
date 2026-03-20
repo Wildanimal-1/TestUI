@@ -45,6 +45,14 @@ A static, UI-only prototype of an infrastructure-grade control-plane console. In
 - Do NOT imply real system state or real user data.
 - Do NOT generate fake "smart" behaviors.
 
+### Information Exposure
+- Do NOT display full system capabilities or advanced controls on every page.
+- Prefer progressive disclosure.
+- Pages should expose only context-relevant actions and information.
+- Advanced functionality should appear only in appropriate domains or detail views.
+- Avoid "everything visible everywhere" layouts.
+- This is an infrastructure control plane, not a dashboard.
+
 ### Stability
 - Do NOT refactor styling, spacing, or structure unless explicitly requested.
 - Do NOT introduce new features without request.
