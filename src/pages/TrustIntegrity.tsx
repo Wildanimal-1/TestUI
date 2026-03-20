@@ -102,7 +102,7 @@ export default function TrustIntegrity() {
           <tbody className="divide-y divide-[var(--border-primary)]">
             {filtered.map((c) => (
               <tr key={c.id} className="hover:bg-[var(--bg-secondary)]">
-                <td className="px-3 py-2">
+                <td className="px-3 py-2.5">
                   <div className="flex items-center gap-2">
                     {c.status === 'healthy'
                       ? <CheckCircle className="w-3 h-3 text-green-600 dark:text-green-500 flex-shrink-0" />
@@ -111,21 +111,21 @@ export default function TrustIntegrity() {
                     <span className="text-[var(--text-primary)] font-medium">{c.name}</span>
                   </div>
                 </td>
-                <td className="px-3 py-2">
+                <td className="px-3 py-2.5">
                   <span className={`inline-flex px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
                     c.status === 'healthy' ? 'bg-green-500/10 text-green-600 dark:text-green-500' : 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-500'
                   }`}>
                     {c.status}
                   </span>
                 </td>
-                <td className="px-3 py-2 text-right font-mono text-[var(--text-tertiary)]">{c.lastRun}</td>
-                <td className="px-3 py-2 text-right font-mono text-[var(--text-secondary)]">{c.duration}</td>
-                <td className="px-3 py-2 text-right font-mono">
+                <td className="px-3 py-2.5 text-right font-mono text-[var(--text-tertiary)]">{c.lastRun}</td>
+                <td className="px-3 py-2.5 text-right font-mono text-[var(--text-secondary)]">{c.duration}</td>
+                <td className="px-3 py-2.5 text-right font-mono">
                   <span className={c.findings > 0 ? 'text-yellow-600 dark:text-yellow-500' : 'text-[var(--text-tertiary)]'}>
                     {c.findings}
                   </span>
                 </td>
-                <td className="px-3 py-2 text-right">
+                <td className="px-3 py-2.5 text-right">
                   <button className="text-blue-600 dark:text-blue-400 hover:underline">Details</button>
                 </td>
               </tr>
@@ -140,20 +140,32 @@ export default function TrustIntegrity() {
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Recent Scans</h2>
         </div>
         <table className="w-full text-xs">
+          <thead className="border-b border-[var(--border-primary)]">
+            <tr>
+              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Timestamp</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20">Checks</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20">Duration</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24">Findings</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24" />
+            </tr>
+          </thead>
           <tbody className="divide-y divide-[var(--border-primary)]">
             {RECENT_SCANS.map((scan, i) => (
               <tr key={i} className="hover:bg-[var(--bg-secondary)]">
-                <td className="px-3 py-2">
+                <td className="px-3 py-2.5">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-3 h-3 text-green-600 dark:text-green-500 flex-shrink-0" />
                     <span className="font-mono text-[var(--text-primary)]">{scan.timestamp}</span>
                   </div>
                 </td>
-                <td className="px-3 py-2 text-[var(--text-tertiary)]">{scan.totalChecks} checks · {scan.duration}</td>
-                <td className="px-3 py-2 text-right">
-                  {scan.findings > 0 && (
-                    <span className="text-yellow-600 dark:text-yellow-500 mr-3">{scan.findings} findings</span>
-                  )}
+                <td className="px-3 py-2.5 text-right font-mono text-[var(--text-secondary)]">{scan.totalChecks}</td>
+                <td className="px-3 py-2.5 text-right font-mono text-[var(--text-secondary)]">{scan.duration}</td>
+                <td className="px-3 py-2.5 text-right font-mono">
+                  <span className={scan.findings > 0 ? 'text-yellow-600 dark:text-yellow-500' : 'text-[var(--text-tertiary)]'}>
+                    {scan.findings}
+                  </span>
+                </td>
+                <td className="px-3 py-2.5 text-right">
                   <button className="text-blue-600 dark:text-blue-400 hover:underline">View Report</button>
                 </td>
               </tr>

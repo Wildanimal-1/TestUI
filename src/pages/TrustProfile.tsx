@@ -84,9 +84,8 @@ export default function TrustProfile() {
 
       {/* Trust Signals Table */}
       <div className="border border-[var(--border-primary)] mb-3">
-        <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-between">
+        <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Trust Signals</h2>
-          <button className="text-xs text-blue-600 dark:text-blue-400 hover:underline">Run verification</button>
         </div>
         <table className="w-full text-xs">
           <thead className="border-b border-[var(--border-primary)]">

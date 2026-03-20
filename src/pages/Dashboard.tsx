@@ -98,26 +98,28 @@ export default function Dashboard() {
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Action Items</h2>
           <span className="text-[10px] text-[var(--text-tertiary)] font-mono">3 pending</span>
         </div>
-        <div className="divide-y divide-[var(--border-primary)]">
-          {ACTION_ITEMS.map((item, i) => (
-            <div key={i} className="flex items-center gap-3 px-3 py-2.5 hover:bg-[var(--bg-secondary)] cursor-pointer">
-              <AlertCircle
-                className={`w-3.5 h-3.5 flex-shrink-0 ${
-                  item.severity === 'warning'
-                    ? 'text-yellow-500'
-                    : 'text-blue-500'
-                }`}
-              />
-              <div className="flex-1 min-w-0">
-                <span className="text-xs font-medium text-[var(--text-primary)]">{item.title}</span>
-                <span className="text-xs text-[var(--text-tertiary)] font-mono ml-2">{item.detail}</span>
-              </div>
-              <button className="text-xs text-blue-600 dark:text-blue-400 hover:underline flex-shrink-0 font-medium">
-                {item.action} →
-              </button>
-            </div>
-          ))}
-        </div>
+        <table className="w-full text-xs">
+          <tbody className="divide-y divide-[var(--border-primary)]">
+            {ACTION_ITEMS.map((item, i) => (
+              <tr key={i} className="hover:bg-[var(--bg-secondary)]">
+                <td className="px-3 py-2.5 w-5">
+                  <AlertCircle
+                    className={`w-3 h-3 flex-shrink-0 ${item.severity === 'warning' ? 'text-yellow-500' : 'text-blue-500'}`}
+                  />
+                </td>
+                <td className="px-3 py-2.5">
+                  <div className="text-[var(--text-primary)] font-medium">{item.title}</div>
+                  <div className="text-[10px] font-mono text-[var(--text-tertiary)] mt-0.5">{item.detail}</div>
+                </td>
+                <td className="px-3 py-2.5 text-right">
+                  <button className="text-xs text-blue-600 dark:text-blue-400 hover:underline font-medium whitespace-nowrap">
+                    {item.action} →
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {/* System Status + Recent Activity */}

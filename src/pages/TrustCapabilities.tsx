@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { CheckCircle, Lock, Search, ChevronDown } from 'lucide-react';
+import { CheckCircle, Lock, Search, ChevronDown, Download } from 'lucide-react';
 
 const CAPABILITIES = [
-  { id: 'cap1', name: 'API Access', category: 'Core', enabled: true, required: 70, current: 94, description: 'Full REST and GraphQL API access with rate limits', features: ['REST API', 'GraphQL API', 'Webhooks', 'Real-time events'] },
-  { id: 'cap2', name: 'Batch Operations', category: 'Core', enabled: true, required: 75, current: 94, description: 'Process up to 1,000 operations per batch', features: ['Bulk verification', 'Batch imports', 'Parallel processing'] },
-  { id: 'cap3', name: 'Webhooks', category: 'Integration', enabled: true, required: 80, current: 94, description: 'Real-time event notifications to your endpoints', features: ['Event subscriptions', 'Custom payloads', 'Retry logic', 'Signature verification'] },
-  { id: 'cap4', name: 'Advanced Analytics', category: 'Analytics', enabled: false, required: 95, current: 94, description: 'Deep insights into trust metrics and trends', features: ['Custom dashboards', 'Trend analysis', 'Predictive scoring', 'Export reports'] },
-  { id: 'cap5', name: 'Priority Support', category: 'Support', enabled: true, required: 85, current: 94, description: 'Enhanced SLA with 1-hour response time', features: ['Dedicated channel', 'Priority queue', '24/7 coverage'] },
-  { id: 'cap6', name: 'Custom Signals', category: 'Trust', enabled: true, required: 90, current: 94, description: 'Define and integrate custom trust signals', features: ['Signal builder', 'Weight customization', 'External integrations'] },
-  { id: 'cap7', name: 'White-label Options', category: 'Enterprise', enabled: false, required: 98, current: 94, description: 'Custom branding and domain configuration', features: ['Custom domain', 'Logo customization', 'Email templates', 'UI theming'] },
-  { id: 'cap8', name: 'Compliance Reports', category: 'Compliance', enabled: true, required: 85, current: 94, description: 'Automated compliance and audit reporting', features: ['SOC 2 reports', 'GDPR compliance', 'Audit logs', 'Data exports'] },
+  { id: 'cap1', name: 'API Access', category: 'Core', enabled: true, required: 70, current: 94, description: 'Full REST and GraphQL API access with rate limits' },
+  { id: 'cap2', name: 'Batch Operations', category: 'Core', enabled: true, required: 75, current: 94, description: 'Process up to 1,000 operations per batch' },
+  { id: 'cap3', name: 'Webhooks', category: 'Integration', enabled: true, required: 80, current: 94, description: 'Real-time event notifications to your endpoints' },
+  { id: 'cap4', name: 'Advanced Analytics', category: 'Analytics', enabled: false, required: 95, current: 94, description: 'Deep insights into trust metrics and trends' },
+  { id: 'cap5', name: 'Priority Support', category: 'Support', enabled: true, required: 85, current: 94, description: 'Enhanced SLA with 1-hour response time' },
+  { id: 'cap6', name: 'Custom Signals', category: 'Trust', enabled: true, required: 90, current: 94, description: 'Define and integrate custom trust signals' },
+  { id: 'cap7', name: 'White-label Options', category: 'Enterprise', enabled: false, required: 98, current: 94, description: 'Custom branding and domain configuration' },
+  { id: 'cap8', name: 'Compliance Reports', category: 'Compliance', enabled: true, required: 85, current: 94, description: 'Automated compliance and audit reporting' },
 ];
 
 export default function TrustCapabilities() {
@@ -55,9 +55,13 @@ export default function TrustCapabilities() {
           </select>
           <ChevronDown className="w-3 h-3 absolute right-1.5 top-1/2 -translate-y-1/2 text-[var(--text-tertiary)] pointer-events-none" />
         </div>
+        <button className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
+          <Download className="w-3 h-3" />
+          Export
+        </button>
         <div className="flex-1" />
-        <span className="text-xs text-[var(--text-tertiary)]">Trust Score:</span>
-        <span className="text-xs font-semibold font-mono text-[var(--text-primary)]">94</span>
+        <span className="text-[10px] text-[var(--text-tertiary)]">Trust Score:</span>
+        <span className="text-[10px] font-mono font-medium text-[var(--text-primary)]">94</span>
       </div>
 
       {/* Summary Strip */}
@@ -72,7 +76,7 @@ export default function TrustCapabilities() {
         </div>
         <div className="px-4 py-2.5">
           <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">Locked</div>
-          <div className="text-xl font-semibold text-neutral-600 dark:text-neutral-400 tabular-nums">{lockedCount}</div>
+          <div className="text-xl font-semibold text-neutral-500 dark:text-neutral-400 tabular-nums">{lockedCount}</div>
         </div>
         <div className="px-4 py-2.5">
           <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">Next Unlock at</div>
@@ -88,11 +92,9 @@ export default function TrustCapabilities() {
               <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-8" />
               <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Capability</th>
               <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24">Category</th>
-              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Description</th>
-              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Features</th>
-              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24">Required</th>
-              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20">Status</th>
-              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20">Actions</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24">Req. Score</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24">Status</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20" />
             </tr>
           </thead>
           <tbody className="divide-y divide-[var(--border-primary)]">
@@ -101,38 +103,27 @@ export default function TrustCapabilities() {
                 <td className="px-3 py-2.5">
                   {cap.enabled
                     ? <CheckCircle className="w-3.5 h-3.5 text-green-600 dark:text-green-500" />
-                    : <Lock className="w-3.5 h-3.5 text-neutral-500" />
+                    : <Lock className="w-3.5 h-3.5 text-neutral-400" />
                   }
                 </td>
-                <td className="px-3 py-2.5 text-[var(--text-primary)] font-medium">{cap.name}</td>
-                <td className="px-3 py-2.5 text-[var(--text-tertiary)] uppercase tracking-wide text-[10px]">{cap.category}</td>
-                <td className="px-3 py-2.5 text-[var(--text-secondary)]">{cap.description}</td>
                 <td className="px-3 py-2.5">
-                  <div className="flex flex-wrap gap-1">
-                    {cap.features.map((f, i) => (
-                      <span key={i} className="text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-secondary)] px-1.5 py-0.5 border border-[var(--border-secondary)]">{f}</span>
-                    ))}
-                  </div>
+                  <div className="text-[var(--text-primary)] font-medium">{cap.name}</div>
+                  <div className="text-[10px] text-[var(--text-tertiary)] mt-0.5">{cap.description}</div>
                 </td>
-                <td className="px-3 py-2.5 text-right font-mono">
-                  <div className="flex flex-col items-end gap-1">
-                    <span className={cap.enabled ? 'text-[var(--text-tertiary)]' : 'text-[var(--text-primary)] font-medium'}>{cap.required}</span>
-                    <div className="w-16 h-0.5 bg-[var(--bg-secondary)]">
-                      <div className={`h-full ${cap.enabled ? 'bg-green-500' : 'bg-neutral-400'}`}
-                        style={{ width: `${Math.min((cap.current / cap.required) * 100, 100)}%` }} />
-                    </div>
-                  </div>
-                </td>
+                <td className="px-3 py-2.5 text-[var(--text-tertiary)] uppercase tracking-wide text-[10px]">{cap.category}</td>
+                <td className="px-3 py-2.5 text-right font-mono text-[var(--text-secondary)]">{cap.required}</td>
                 <td className="px-3 py-2.5 text-right">
                   <span className={`inline-flex px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide ${
-                    cap.enabled ? 'bg-green-500/10 text-green-600 dark:text-green-500' : 'bg-neutral-500/10 text-neutral-600 dark:text-neutral-400'
+                    cap.enabled
+                      ? 'bg-green-500/10 text-green-600 dark:text-green-500'
+                      : 'bg-neutral-500/10 text-neutral-500 dark:text-neutral-400'
                   }`}>
                     {cap.enabled ? 'Active' : 'Locked'}
                   </span>
                 </td>
                 <td className="px-3 py-2.5 text-right">
                   {!cap.enabled && (
-                    <button className="text-blue-600 dark:text-blue-400 hover:underline">Unlock</button>
+                    <button className="text-xs text-blue-600 dark:text-blue-400 hover:underline">Unlock</button>
                   )}
                 </td>
               </tr>

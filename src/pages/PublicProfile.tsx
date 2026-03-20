@@ -45,20 +45,19 @@ export default function PublicProfile() {
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Profile</h2>
         </div>
-        <div className="px-3 py-3 flex items-center gap-4">
-          {/* Avatar placeholder */}
-          <div className="w-12 h-12 border border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-center flex-shrink-0">
-            <User className="w-5 h-5 text-[var(--text-tertiary)]" />
+        <div className="px-3 py-2.5 flex items-center gap-4">
+          <div className="w-10 h-10 border border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-center flex-shrink-0">
+            <User className="w-4 h-4 text-[var(--text-tertiary)]" />
           </div>
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-0.5">
-              <span className="text-sm font-medium text-[var(--text-primary)]">Display name</span>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-medium text-[var(--text-primary)]">Display name</span>
               <span className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-neutral-500/10 text-neutral-500 dark:text-neutral-400">
                 <Shield className="w-2.5 h-2.5" />
                 Level 0
               </span>
             </div>
-            <div className="text-xs font-mono text-[var(--text-tertiary)]">@username · uid_000000000000</div>
+            <div className="text-[10px] font-mono text-[var(--text-tertiary)] mt-0.5">@username · uid_000000000000</div>
           </div>
           <div className="text-right flex-shrink-0">
             <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-0.5">Trust Score</div>

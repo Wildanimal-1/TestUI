@@ -84,20 +84,20 @@ export default function Verification() {
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Verification Overview</h2>
         </div>
-        <div className="px-3 py-3 flex items-start gap-6">
-          <div>
-            <div className="text-2xl font-semibold tabular-nums text-[var(--text-primary)]">{verifiedCount}/{total}</div>
+        <div className="px-3 py-2.5 flex items-center gap-6">
+          <div className="flex-shrink-0">
+            <div className="text-xl font-semibold tabular-nums text-[var(--text-primary)]">{verifiedCount}/{total}</div>
             <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mt-0.5">Methods complete</div>
           </div>
-          <div className="flex-1 pt-1">
-            <div className="h-1.5 bg-[var(--bg-secondary)] mb-2 w-full">
+          <div className="flex-1">
+            <div className="h-1 bg-[var(--bg-secondary)] mb-2 w-full border border-[var(--border-primary)]">
               <div
                 className="h-full bg-blue-600 dark:bg-blue-500"
                 style={{ width: `${(verifiedCount / total) * 100}%` }}
               />
             </div>
-            <p className="text-xs text-[var(--text-secondary)]">
-              Complete verifications to increase trust level. Required verifications must be completed before advanced capabilities are unlocked.
+            <p className="text-[10px] text-[var(--text-tertiary)]">
+              Complete required verifications to increase trust level and unlock capabilities.
             </p>
           </div>
         </div>
@@ -108,43 +108,53 @@ export default function Verification() {
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Verification Methods</h2>
         </div>
-        <div className="divide-y divide-[var(--border-primary)]">
-          {METHODS.map((method) => {
-            const Icon = method.icon;
-            return (
-              <div key={method.id} className="px-3 py-3 flex items-center gap-4 hover:bg-[var(--bg-secondary)]">
-                <Icon className="w-4 h-4 text-[var(--text-tertiary)] flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-sm font-medium text-[var(--text-primary)]">{method.label}</span>
-                    <span className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">{method.weight}</span>
-                  </div>
-                  <p className="text-xs text-[var(--text-secondary)]">
-                    {method.description}
-                    {method.note && (
-                      <span className="ml-2 text-[var(--text-tertiary)]">— {method.note}</span>
-                    )}
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 flex-shrink-0">
-                  <div className="text-right">
-                    <StatusBadge status={method.status} />
-                    <div className="text-[10px] text-[var(--text-tertiary)] mt-1 font-mono">
-                      Last updated: {method.lastUpdated}
+        <table className="w-full text-xs">
+          <thead className="border-b border-[var(--border-primary)]">
+            <tr>
+              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-8" />
+              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Method</th>
+              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20">Required</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-28">Last Updated</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-24">Status</th>
+              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20" />
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[var(--border-primary)]">
+            {METHODS.map((method) => {
+              const Icon = method.icon;
+              return (
+                <tr key={method.id} className="hover:bg-[var(--bg-secondary)]">
+                  <td className="px-3 py-2.5">
+                    <Icon className="w-3.5 h-3.5 text-[var(--text-tertiary)]" />
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <div className="text-[var(--text-primary)] font-medium">{method.label}</div>
+                    <div className="text-[10px] text-[var(--text-tertiary)] mt-0.5">
+                      {method.description}
+                      {method.note && <span className="ml-1">— {method.note}</span>}
                     </div>
-                  </div>
-                  <button
-                    onClick={() => setCurrentPage(method.id as any)}
-                    className="flex items-center gap-1 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] flex-shrink-0"
-                  >
-                    {method.status === 'verified' ? 'View' : 'Verify'}
-                    <ArrowRight className="w-3 h-3" />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <span className="text-[10px] uppercase tracking-wide text-[var(--text-tertiary)]">{method.weight}</span>
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[var(--text-tertiary)]">{method.lastUpdated}</td>
+                  <td className="px-3 py-2.5 text-right">
+                    <StatusBadge status={method.status} />
+                  </td>
+                  <td className="px-3 py-2.5 text-right">
+                    <button
+                      onClick={() => setCurrentPage(method.id as any)}
+                      className="inline-flex items-center gap-1 px-2 py-1 text-[10px] border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
+                    >
+                      {method.status === 'verified' ? 'View' : 'Verify'}
+                      <ArrowRight className="w-2.5 h-2.5" />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
 
       {/* Additional Signals */}
@@ -152,23 +162,27 @@ export default function Verification() {
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Additional Trust Signals</h2>
         </div>
-        <div className="divide-y divide-[var(--border-primary)]">
-          {ADDITIONAL.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.label} className="px-3 py-3 flex items-center gap-4 hover:bg-[var(--bg-secondary)]">
-                <Icon className="w-4 h-4 text-[var(--text-tertiary)] flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-sm font-medium text-[var(--text-primary)]">{item.label}</span>
-                  </div>
-                  <p className="text-xs text-[var(--text-secondary)]">{item.description}</p>
-                </div>
-                <StatusBadge status={item.status} />
-              </div>
-            );
-          })}
-        </div>
+        <table className="w-full text-xs">
+          <tbody className="divide-y divide-[var(--border-primary)]">
+            {ADDITIONAL.map((item) => {
+              const Icon = item.icon;
+              return (
+                <tr key={item.label} className="hover:bg-[var(--bg-secondary)]">
+                  <td className="px-3 py-2.5 w-8">
+                    <Icon className="w-3.5 h-3.5 text-[var(--text-tertiary)]" />
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <div className="text-[var(--text-primary)] font-medium">{item.label}</div>
+                    <div className="text-[10px] text-[var(--text-tertiary)] mt-0.5">{item.description}</div>
+                  </td>
+                  <td className="px-3 py-2.5 text-right">
+                    <StatusBadge status={item.status} />
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

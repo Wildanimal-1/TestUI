@@ -1,0 +1,134 @@
+Refine the existing UI to follow infrastructure-grade console information architecture WITHOUT changing layout structure, navigation, or adding features.
+
+IMPORTANT CONSTRAINTS (MUST FOLLOW):
+
+• UI prototype only — no backend, APIs, auth, or persistence
+• Do NOT change AppShell, navigation, routing, or page structure
+• Do NOT convert pages to tabs or cards
+• Do NOT add new components unless strictly necessary for layout alignment
+• Keep all content as placeholder/static
+• Maintain flat design — no shadows, gradients, or decorative styling
+• Preserve light/dark theme support
+• No functional behavior changes
+
+GOAL:
+Improve scanability, alignment, hierarchy, and operator feel so the UI resembles infrastructure control planes (Stripe, AWS, Cloudflare, Supabase).
+
+------------------------------------------------
+
+1) ALIGN INFORMATION INTO CONSISTENT COLUMNS
+
+Current pages mix labels, values, statuses, and actions in inconsistent positions.
+
+Refactor all “definition-style” sections to use a strict grid:
+
+[ Label column | Value column | Optional status | Actions ]
+
+• Labels left-aligned
+• Values aligned vertically across rows
+• IDs and technical values use monospace font
+• Action buttons right-aligned in a dedicated column
+• Avoid floating buttons inside content text
+• Maintain dense spacing (infrastructure style)
+
+------------------------------------------------
+
+2) CREATE CLEAR SECTION HIERARCHY (WITHOUT CARDS)
+
+Information currently feels stacked with equal weight.
+
+Improve hierarchy using ONLY:
+
+• Section titles
+• Divider lines
+• Spacing rhythm
+• Subtle background separation if already in system variables
+
+Do NOT use:
+✗ Card shadows
+✗ Rounded panels
+✗ Decorative containers
+
+Each major section should feel like a distinct operational domain.
+
+------------------------------------------------
+
+3) SEPARATE READ-ONLY DATA FROM ACTIONS
+
+Editable or dangerous actions should not appear inline with metadata.
+
+Group actions into a small command area per section when appropriate.
+
+Example pattern:
+
+Section title
+Divider
+Data rows (read-only)
+Divider
+Section actions (Edit, Export, Configure)
+
+------------------------------------------------
+
+4) MAKE CONTROLS FEEL OPERATOR-GRADE
+
+Refine buttons and toggles to feel like infrastructure tools:
+
+• Prefer compact buttons
+• Avoid oversized consumer-style switches
+• Ensure destructive actions are visually distinct but minimal
+• Disabled actions should look intentional, not broken
+• Maintain consistent button hierarchy (primary, secondary, neutral)
+
+Do NOT introduce colorful or decorative styles.
+
+------------------------------------------------
+
+5) IMPROVE SCANABILITY
+
+Optimize for quick vertical scanning:
+
+• Use consistent row height across similar components
+• Keep metadata text smaller and lower contrast
+• Keep important values visually dominant
+• Align numeric data and timestamps consistently
+• Avoid long paragraph blocks
+
+------------------------------------------------
+
+6) PRESERVE EXISTING DESIGN LANGUAGE
+
+Keep:
+
+• Flat surfaces
+• Dense tables
+• Minimal color usage
+• Infrastructure-style typography
+• Current spacing scale where possible
+
+Do NOT make the UI “prettier” — make it more operational.
+
+------------------------------------------------
+
+7) DO NOT CHANGE THESE ELEMENTS
+
+• Sidebar behavior
+• Secondary sidebar logic
+• Header structure
+• Context bar
+• Routing
+• Page inventory
+• Placeholder content meaning
+
+------------------------------------------------
+
+SUCCESS CRITERIA
+
+After refinement, pages should:
+
+• Feel structured rather than stacked
+• Be easy to scan vertically
+• Clearly separate data vs actions
+• Resemble infrastructure consoles rather than SaaS dashboards
+• Maintain a serious, utilitarian appearance
+
+Apply changes across all populated pages consistently.
