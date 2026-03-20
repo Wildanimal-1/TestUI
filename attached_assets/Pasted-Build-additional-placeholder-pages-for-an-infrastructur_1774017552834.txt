@@ -1,0 +1,184 @@
+Build additional placeholder pages for an infrastructure-grade trust platform console.
+This is UI-only — DO NOT implement backend logic, APIs, or simulated verification processes.
+
+⸻
+
+GLOBAL RULES
+	•	Use the existing console layout (sidebar + header + context bar)
+	•	Use flat surfaces — avoid boxed card UIs
+	•	No mock/fake generated data
+	•	Use neutral placeholders only (e.g., “No verifications yet”)
+	•	No animations or marketing visuals
+	•	Dense, operational layout similar to Stripe/AWS/Cloudflare consoles
+	•	Pages should feel like working tools, not informational articles
+	•	Support light and dark themes
+	•	Do not add new navigation patterns — follow existing structure
+	•	Maintain consistent spacing and typography
+
+⸻
+
+🔐 1) VERIFICATION HUB PAGE
+
+Create a main Verification page at:
+
+👉 /verification
+
+Purpose: Central place to manage all verification processes.
+
+⸻
+
+Sections to display
+
+Verification Overview
+	•	Overall verification status
+	•	Progress indicator (placeholder)
+	•	Summary text like:
+“Complete verifications to increase trust level”
+
+⸻
+
+Verification Methods List
+
+Each method should be shown as a row or panel:
+
+Email Verification
+	•	Status badge (Verified / Not verified)
+	•	Description
+	•	Action button (e.g., “Verify email”)
+	•	Last updated placeholder
+
+⸻
+
+Phone Verification
+	•	Same structure
+
+⸻
+
+Identity Verification
+	•	Placeholder for document + selfie verification
+	•	Status badge
+	•	Action button
+	•	Info text like:
+“Requires government ID”
+
+⸻
+
+Additional Signals (optional section)
+Examples:
+	•	Social account verification
+	•	Address verification
+	•	Other trust signals
+
+All should be placeholders only.
+
+⸻
+
+🧾 2) VERIFICATION DETAIL PAGE (OPTIONAL)
+
+If navigation supports sub-pages:
+
+👉 /verification/email
+👉 /verification/phone
+👉 /verification/identity
+
+Each page should include:
+	•	Explanation of what the verification does
+	•	Requirements
+	•	Status
+	•	Action button (disabled or placeholder)
+	•	No upload components
+	•	No forms that submit anywhere
+
+⸻
+
+🌍 3) PUBLIC PROFILE PAGE
+
+Create a page representing what others would see.
+
+👉 /profile or /public-profile
+
+Purpose: Public trust identity surface.
+
+⸻
+
+Sections to include
+
+Profile Header
+	•	Display name placeholder
+	•	Handle or user ID
+	•	Profile avatar placeholder
+	•	Trust level badge
+	•	Trust score (non-sensitive placeholder)
+
+⸻
+
+Verification Summary
+
+Show verified items only (placeholder):
+	•	Email verified
+	•	Phone verified
+	•	Identity verified
+	•	Other signals
+
+No raw personal data.
+
+⸻
+
+Trust Signals / Capabilities
+
+Examples:
+	•	Account integrity
+	•	Verification completion
+	•	Activity reliability
+
+Display as badges or simple rows.
+
+⸻
+
+Public URL Section
+
+Show example:
+
+Public profile URL:
+veravue.com/u/username
+
+Include:
+	•	Copy button (UI only)
+	•	Visibility toggle (UI only)
+
+⸻
+
+Visibility Controls
+
+Simple switches (non-functional):
+	•	Show trust score publicly
+	•	Show verification status
+	•	Allow profile discovery
+
+⸻
+
+🎨 DESIGN REQUIREMENTS
+	•	Match infrastructure console aesthetics
+	•	Avoid large empty hero sections
+	•	Avoid consumer social profile design
+	•	Avoid decorative gradients
+	•	Avoid rounded cards everywhere
+	•	Prefer dividers, lists, tables, and rows
+	•	Layout should feel information-dense but readable
+
+⸻
+
+🚫 DO NOT IMPLEMENT
+	•	No real authentication
+	•	No uploads
+	•	No API calls
+	•	No fake verification processing
+	•	No timers or simulations
+	•	No notifications or emails
+	•	No backend assumptions
+
+⸻
+
+✅ GOAL
+
+Create realistic placeholder surfaces so the console feels complete and structurally correct for a trust infrastructure platform.

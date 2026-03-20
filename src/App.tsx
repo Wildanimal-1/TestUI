@@ -16,6 +16,9 @@ import TrustIntegrity from './pages/TrustIntegrity';
 import TrustCapabilities from './pages/TrustCapabilities';
 import Activity from './pages/Activity';
 import APIKeys from './pages/APIKeys';
+import Verification from './pages/Verification';
+import VerificationDetail from './pages/VerificationDetail';
+import PublicProfile from './pages/PublicProfile';
 import PlaceholderPage from './pages/PlaceholderPage';
 
 function AppContent({ onSignOut }: { onSignOut: () => void }) {
@@ -29,7 +32,22 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
     verification: {
       title: 'Verification',
       breadcrumbs: [{ label: 'Core' }, { label: 'Verification' }],
-      content: <PlaceholderPage title="Verification Center" description="Manage and review verification requests" />,
+      content: <Verification />,
+    },
+    'verification-email': {
+      title: 'Email Verification',
+      breadcrumbs: [{ label: 'Core' }, { label: 'Verification' }, { label: 'Email' }],
+      content: <VerificationDetail type="email" />,
+    },
+    'verification-phone': {
+      title: 'Phone Verification',
+      breadcrumbs: [{ label: 'Core' }, { label: 'Verification' }, { label: 'Phone' }],
+      content: <VerificationDetail type="phone" />,
+    },
+    'verification-identity': {
+      title: 'Identity Verification',
+      breadcrumbs: [{ label: 'Core' }, { label: 'Verification' }, { label: 'Identity' }],
+      content: <VerificationDetail type="identity" />,
     },
     activity: {
       title: 'Activity Log',
@@ -81,6 +99,11 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
       breadcrumbs: [{ label: 'Account' }, { label: 'Profile' }],
       content: <PlaceholderPage title="Account Profile" description="Manage your personal information and preferences" />,
     },
+    'public-profile': {
+      title: 'Public Profile',
+      breadcrumbs: [{ label: 'Account' }, { label: 'Public Profile' }],
+      content: <PublicProfile />,
+    },
     security: {
       title: 'Security',
       breadcrumbs: [{ label: 'Account' }, { label: 'Security' }],
@@ -111,6 +134,13 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
     { id: 'trust-capabilities', label: 'Capabilities' },
   ];
 
+  const verificationNavItems = [
+    { id: 'verification', label: 'Overview' },
+    { id: 'verification-email', label: 'Email' },
+    { id: 'verification-phone', label: 'Phone' },
+    { id: 'verification-identity', label: 'Identity' },
+  ];
+
   const config = pageConfig[currentPage] || pageConfig.dashboard;
 
   return (
@@ -118,6 +148,9 @@ function AppContent({ onSignOut }: { onSignOut: () => void }) {
       <Sidebar />
       {currentDomain === 'trust' && (
         <SecondarySidebar items={trustNavItems} title="Trust Management" />
+      )}
+      {currentDomain === 'verification' && (
+        <SecondarySidebar items={verificationNavItems} title="Verification" />
       )}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
         <Header title={config.title} breadcrumbs={config.breadcrumbs} onSignOut={onSignOut} />

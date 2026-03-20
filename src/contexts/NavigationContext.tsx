@@ -1,10 +1,13 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-type DomainId = 'core' | 'trust' | 'developers' | 'account' | 'admin';
+type DomainId = 'core' | 'trust' | 'verification' | 'developers' | 'account' | 'admin';
 
 type PageId =
   | 'dashboard'
   | 'verification'
+  | 'verification-email'
+  | 'verification-phone'
+  | 'verification-identity'
   | 'activity'
   | 'trust-profile'
   | 'trust-signals'
@@ -15,6 +18,7 @@ type PageId =
   | 'api-keys'
   | 'settings'
   | 'profile'
+  | 'public-profile'
   | 'security'
   | 'preferences'
   | 'reviews'

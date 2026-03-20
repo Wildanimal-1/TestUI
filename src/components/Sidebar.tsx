@@ -30,7 +30,7 @@ const navigation: NavSection[] = [
     label: 'CORE',
     items: [
       { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-      { id: 'verification', label: 'Verification', icon: CheckCircle2 },
+      { id: 'verification', label: 'Verification', icon: CheckCircle2, domain: 'verification' },
       { id: 'activity', label: 'Activity', icon: Activity },
     ],
   },
@@ -52,6 +52,7 @@ const navigation: NavSection[] = [
     label: 'ACCOUNT',
     items: [
       { id: 'profile', label: 'Profile', icon: User },
+      { id: 'public-profile', label: 'Public Profile', icon: Shield },
       { id: 'security', label: 'Security', icon: Lock },
       { id: 'preferences', label: 'Preferences', icon: Sliders },
     ],
