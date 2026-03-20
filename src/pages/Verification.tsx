@@ -80,26 +80,23 @@ export default function Verification() {
   return (
     <div>
       {/* Overview */}
-      <div className="border border-[var(--border-primary)] mb-4">
-        <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
-          <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Verification Overview</h2>
+      <div className="grid grid-cols-3 border border-[var(--border-primary)] divide-x divide-[var(--border-primary)] mb-4">
+        <div className="px-4 py-2.5">
+          <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">Methods Complete</div>
+          <div className="text-xl font-semibold text-[var(--text-primary)] tabular-nums">{verifiedCount}/{total}</div>
         </div>
-        <div className="px-3 py-2.5 flex items-center gap-6">
-          <div className="flex-shrink-0">
-            <div className="text-xl font-semibold tabular-nums text-[var(--text-primary)]">{verifiedCount}/{total}</div>
-            <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mt-0.5">Methods complete</div>
-          </div>
-          <div className="flex-1">
-            <div className="h-1 bg-[var(--bg-secondary)] mb-2 w-full border border-[var(--border-primary)]">
-              <div
-                className="h-full bg-blue-600 dark:bg-blue-500"
-                style={{ width: `${(verifiedCount / total) * 100}%` }}
-              />
+        <div className="px-4 py-2.5">
+          <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">Completion</div>
+          <div className="flex items-center gap-3 mt-1">
+            <div className="flex-1 h-1 bg-[var(--bg-secondary)] border border-[var(--border-primary)]">
+              <div className="h-full bg-blue-600 dark:bg-blue-500" style={{ width: `${(verifiedCount / total) * 100}%` }} />
             </div>
-            <p className="text-[10px] text-[var(--text-tertiary)]">
-              Complete required verifications to increase trust level and unlock capabilities.
-            </p>
+            <span className="text-xs font-mono text-[var(--text-tertiary)] flex-shrink-0">{Math.round((verifiedCount / total) * 100)}%</span>
           </div>
+        </div>
+        <div className="px-4 py-2.5">
+          <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1">Remaining</div>
+          <div className="text-xl font-semibold text-[var(--text-primary)] tabular-nums">{total - verifiedCount}</div>
         </div>
       </div>
 

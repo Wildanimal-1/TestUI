@@ -1,0 +1,134 @@
+Perform a presentation-layer refinement pass to make this console feel like a true infrastructure control plane (similar to Stripe Dashboard, AWS Console, Cloudflare, Supabase).
+
+IMPORTANT CONSTRAINTS:
+• UI-only changes — no backend, APIs, data logic, routing, or auth
+• Do NOT add new features or pages
+• Do NOT remove existing functionality
+• Preserve AppShell, navigation, and domain structure
+• Keep all content as placeholder/static
+• Do NOT convert to a SaaS marketing style
+• No gradients, glass, shadows, or decorative UI
+• Flat, operational design only
+
+PRIMARY GOAL:
+Improve hierarchy, scanability, alignment, and operator feel — not aesthetics.
+
+---
+
+SECTION 1 — INFORMATION HIERARCHY
+
+Make major sections visually distinct so information no longer feels like one continuous block.
+
+• Clearly separate major sections using spacing and structural grouping (not boxes or heavy backgrounds)
+• Use subtle section headers with uppercase labels and muted color
+• Ensure each section reads as an independent operational unit
+• Avoid stacked paragraph-style layouts
+• Use tables or definition lists for structured data whenever possible
+
+---
+
+SECTION 2 — GRID & ALIGNMENT DISCIPLINE
+
+Apply strict horizontal rhythm across all pages.
+
+• Align all content to a consistent grid
+• Ensure labels align vertically across rows
+• Ensure values form a clean readable column
+• Right-align numeric values, timestamps, and statuses
+• Keep action buttons consistently right-aligned
+• Eliminate uneven left/right padding
+• Prevent elements from drifting too far left or right
+
+Goal: pages should feel engineered, not composed.
+
+---
+
+SECTION 3 — LABEL / VALUE STRUCTURE
+
+Replace any free-form text blocks with structured operator layouts.
+
+Use patterns like:
+
+Label | Value
+Metric | Number
+Setting | Status
+Item | Metadata | Action
+
+• Labels = smaller, muted text
+• Values = higher contrast
+• IDs, keys, technical strings = monospace font
+• Secondary details = smaller text below primary value
+• Avoid inline sentence-style descriptions
+
+---
+
+SECTION 4 — CONTROL PLANE-GRADE CONTROLS
+
+Make buttons, toggles, and actions feel operational, not consumer-app-like.
+
+Buttons:
+• Compact size
+• Minimal rounding
+• No large padding
+• Primary actions only where necessary
+• Prefer text buttons for secondary actions
+• Avoid colorful or playful styling
+
+Toggles / switches:
+• Neutral colors
+• Subtle state change
+• No oversized switches
+• Match system console style
+
+Actions:
+• Place in command bars or right column
+• Do NOT scatter actions throughout content
+
+---
+
+SECTION 5 — VISUAL WEIGHT MANAGEMENT
+
+Not everything should compete for attention.
+
+• Reduce emphasis on secondary information
+• Use muted colors for metadata
+• Reserve strong contrast for primary data
+• Avoid large bold text except for key metrics
+• Prevent visual noise from icons or badges
+
+---
+
+SECTION 6 — OPERATOR CONTEXT FEEL
+
+Make the interface feel like managing a system, not editing a profile.
+
+• Emphasize status, configuration, and state over decoration
+• Keep surfaces calm and information-dense
+• Prefer read-only presentation with actions available but not dominant
+• Avoid conversational or friendly UI tone
+
+---
+
+SECTION 7 — DO NOT INTRODUCE
+
+• No new components
+• No charts or decorative visuals
+• No cards-with-shadows style
+• No modern SaaS hero layouts
+• No animations beyond existing behavior
+• No fake dynamic states
+
+---
+
+OUTPUT REQUIREMENT
+
+Refactor existing pages to achieve:
+
+✔ Clear domain separation
+✔ Strong scanability
+✔ Consistent alignment
+✔ Infrastructure-grade control surfaces
+✔ Calm, authoritative presentation
+✔ No consumer dashboard feel
+
+Think “mission-critical system console,” not “product UI.”

@@ -129,7 +129,7 @@ export default function Sidebar() {
 
       <div className="px-3 py-2 border-t border-[var(--border-primary)]">
         <div className="flex items-center gap-2 text-[11px] text-[var(--text-tertiary)]">
-          <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+          <div className="w-1.5 h-1.5 bg-green-500"></div>
           <span>Production</span>
         </div>
       </div>

@@ -223,7 +223,6 @@ export default function Activity() {
         </div>
       </div>
 
-      <p className="mt-2 text-[10px] text-[var(--text-tertiary)]">Click any row to inspect event details</p>
     </div>
   );
 }

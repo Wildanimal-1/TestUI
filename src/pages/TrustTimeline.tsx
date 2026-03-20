@@ -113,7 +113,7 @@ export default function TrustTimeline() {
                 <td className="px-3 py-2 font-mono text-[var(--text-tertiary)]">{e.time}</td>
                 <td className="px-3 py-2">
                   <div className="flex items-center gap-2">
-                    <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                    <div className={`w-1.5 h-1.5 flex-shrink-0 ${
                       e.type === 'score_increase' ? 'bg-green-500' : e.type === 'score_decrease' ? 'bg-red-500' : 'bg-yellow-500'
                     }`} />
                     <span className="text-[var(--text-primary)]">{e.reason}</span>

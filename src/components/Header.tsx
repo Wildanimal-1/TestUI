@@ -72,7 +72,7 @@ export default function Header({ title, breadcrumbs, onSignOut }: HeaderProps) {
               <kbd className="hidden sm:inline-flex items-center px-1 text-[10px] font-mono border border-[var(--border-primary)] text-[var(--text-tertiary)] opacity-60">⌘K</kbd>
             </button>
             {showSearch && (
-              <div className="absolute right-0 mt-1 w-72 bg-[var(--bg-primary)] border border-[var(--border-primary)] shadow-xl z-50">
+              <div className="absolute right-0 mt-1 w-72 bg-[var(--bg-primary)] border border-[var(--border-primary)] z-50">
                 <div className="flex items-center gap-2 px-2.5 py-2 border-b border-[var(--border-primary)]">
                   <Search className="w-3.5 h-3.5 text-[var(--text-tertiary)]" />
                   <input
@@ -128,12 +128,12 @@ export default function Header({ title, breadcrumbs, onSignOut }: HeaderProps) {
             >
               <Bell className="w-3.5 h-3.5" />
               {hasAlerts && (
-                <span className={`absolute top-0.5 right-0.5 w-1.5 h-1.5 rounded-full ${system.errorCount > 0 ? 'bg-red-500' : 'bg-yellow-500'}`} />
+                <span className={`absolute top-0.5 right-0.5 w-1.5 h-1.5 ${system.errorCount > 0 ? 'bg-red-500' : 'bg-yellow-500'}`} />
               )}
             </button>
 
             {showNotifications && (
-              <div className="absolute right-0 mt-1 w-80 bg-[var(--bg-primary)] border border-[var(--border-primary)] shadow-xl z-50">
+              <div className="absolute right-0 mt-1 w-80 bg-[var(--bg-primary)] border border-[var(--border-primary)] z-50">
                 <div className="px-3 py-2 border-b border-[var(--border-primary)] flex items-center justify-between">
                   <h3 className="text-xs font-medium text-[var(--text-primary)]">Notifications</h3>
                   <button className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline">Mark all read</button>
@@ -173,7 +173,7 @@ export default function Header({ title, breadcrumbs, onSignOut }: HeaderProps) {
               onClick={() => { setShowUserMenu(!showUserMenu); setShowNotifications(false); setShowSearch(false); }}
               className="flex items-center gap-1.5 px-1.5 py-1 hover:bg-[var(--bg-secondary)] transition-colors"
             >
-              <div className="w-5 h-5 bg-neutral-700 dark:bg-neutral-600 rounded-full flex items-center justify-center shrink-0">
+              <div className="w-5 h-5 bg-neutral-700 dark:bg-neutral-600 flex items-center justify-center shrink-0">
                 <span className="text-[9px] font-medium text-white">{system.account.initials}</span>
               </div>
               <span className="text-xs text-[var(--text-secondary)] hidden sm:block">{system.account.name}</span>
@@ -181,7 +181,7 @@ export default function Header({ title, breadcrumbs, onSignOut }: HeaderProps) {
             </button>
 
             {showUserMenu && (
-              <div className="absolute right-0 mt-1 w-52 bg-[var(--bg-primary)] border border-[var(--border-primary)] shadow-xl z-50">
+              <div className="absolute right-0 mt-1 w-52 bg-[var(--bg-primary)] border border-[var(--border-primary)] z-50">
                 <div className="px-3 py-2 border-b border-[var(--border-primary)]">
                   <p className="text-xs font-medium text-[var(--text-primary)]">{system.account.name}</p>
                   <p className="text-[10px] text-[var(--text-tertiary)] font-mono mt-0.5">{system.account.email}</p>

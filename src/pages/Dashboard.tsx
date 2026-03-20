@@ -134,7 +134,7 @@ export default function Dashboard() {
                 <tr key={svc.name} className="hover:bg-[var(--bg-secondary)]">
                   <td className="px-3 py-2.5">
                     <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 bg-green-500 flex-shrink-0" />
                       <span className="text-[var(--text-primary)] font-medium">{svc.name}</span>
                     </div>
                     <div className="text-[10px] text-[var(--text-tertiary)] ml-3.5 mt-0.5">{svc.state}</div>
@@ -159,7 +159,7 @@ export default function Dashboard() {
                 <tr key={i} className="hover:bg-[var(--bg-secondary)] cursor-pointer">
                   <td className="px-3 py-2">
                     <div className="flex items-center gap-2">
-                      <div className={`w-1 h-1 rounded-full flex-shrink-0 ${
+                      <div className={`w-1 h-1 flex-shrink-0 ${
                         a.status === 'success' ? 'bg-green-500' : a.status === 'error' ? 'bg-red-500' : 'bg-blue-500'
                       }`} />
                       <span className="text-[var(--text-primary)]">{a.event}</span>

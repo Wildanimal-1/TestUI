@@ -163,9 +163,9 @@ export default function DeveloperSettings() {
             </button>
           }
         />
-        <div className="px-3 py-4 text-center">
-          <p className="text-xs text-[var(--text-tertiary)]">No IP restrictions configured — all IPs are allowed</p>
-          <p className="text-[10px] text-[var(--text-tertiary)] mt-1">Add CIDR ranges to restrict API access by origin IP</p>
+        <div className="px-3 py-2.5 flex items-center justify-between">
+          <span className="text-xs text-[var(--text-secondary)]">Restriction mode</span>
+          <span className="text-xs font-mono text-[var(--text-tertiary)]">Disabled — all IPs permitted</span>
         </div>
       </div>
     </div>

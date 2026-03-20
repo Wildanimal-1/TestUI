@@ -47,19 +47,12 @@ export default function TrustProfile() {
         </span>
       </div>
 
-      {/* Score + Breakdown — compact horizontal layout */}
+      {/* Score + Breakdown */}
       <div className="grid grid-cols-12 gap-3 mb-4">
-        <div className="col-span-2 border border-[var(--border-primary)] flex flex-col items-center justify-center py-4">
-          <div className="relative inline-flex items-center justify-center w-20 h-20 mb-2">
-            <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
-              <circle cx="40" cy="40" r="34" stroke="var(--border-primary)" strokeWidth="6" fill="none" />
-              <circle cx="40" cy="40" r="34" stroke="#3b82f6" strokeWidth="6" fill="none"
-                strokeDasharray={`${(94 / 100) * 213.6} 213.6`} strokeLinecap="round" />
-            </svg>
-            <span className="absolute text-2xl font-semibold text-[var(--text-primary)] tabular-nums">94</span>
-          </div>
-          <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider">Trust Score</div>
-          <div className="text-[10px] text-[var(--text-tertiary)] mt-0.5">Excellent</div>
+        <div className="col-span-2 border border-[var(--border-primary)] flex flex-col justify-center px-4 py-4">
+          <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-2">Trust Score</div>
+          <div className="text-4xl font-semibold text-[var(--text-primary)] tabular-nums leading-none">94</div>
+          <div className="text-[10px] text-[var(--text-tertiary)] mt-1.5 font-mono">/ 100 · Excellent</div>
         </div>
 
         <div className="col-span-10 border border-[var(--border-primary)]">

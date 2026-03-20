@@ -4,7 +4,7 @@ import { useSystem } from '../contexts/SystemContext';
 function ServiceDot({ status }: { status: 'ok' | 'degraded' | 'error' }) {
   return (
     <span
-      className={`inline-block w-1.5 h-1.5 rounded-full ${
+      className={`inline-block w-1.5 h-1.5 ${
         status === 'ok'
           ? 'bg-green-500'
           : status === 'degraded'
