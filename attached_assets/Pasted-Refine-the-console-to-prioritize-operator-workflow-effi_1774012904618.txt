@@ -1,0 +1,99 @@
+Refine the console to prioritize operator workflow efficiency and information hierarchy rather than feature completeness.
+
+--------------------------------
+CORE PROBLEM
+--------------------------------
+
+The interface contains the correct structural components but still behaves like full-page views instead of a continuous operational workspace.
+
+--------------------------------
+INFORMATION PRIORITIZATION
+--------------------------------
+
+Reorganize each page so the most critical operational data appears first and is immediately scannable.
+
+Avoid showing all information with equal visual weight.
+
+Use hierarchy through:
+
+- Typography scale
+- Spacing
+- Alignment
+- Contrast
+- Position
+
+--------------------------------
+COMMAND BAR MODEL
+--------------------------------
+
+Implement a consistent command bar pattern beneath the page title:
+
+1. Primary actions (create, run, verify, etc.)
+2. Secondary actions
+3. Filters and search
+4. Status indicators
+
+This should feel like a control surface, not decorative UI.
+
+--------------------------------
+PROGRESSIVE DISCLOSURE
+--------------------------------
+
+Do not present all details at once.
+
+Use:
+
+- Expandable sections
+- Detail drawers
+- Inline expansion
+- Secondary panels
+- Drill-down interactions
+
+--------------------------------
+CONTINUOUS WORKSPACE FEEL
+--------------------------------
+
+Pages should feel like different views of the same system, not separate documents.
+
+Minimize visual resets between navigation.
+
+--------------------------------
+SCANABILITY
+--------------------------------
+
+Optimize for rapid scanning of dense information:
+
+- Align numeric values
+- Use tabular data patterns
+- Group related metrics
+- Avoid large unstructured text blocks
+- Prefer lists and tables over paragraphs
+
+--------------------------------
+VISUAL DISCIPLINE
+--------------------------------
+
+Avoid decorative surfaces.
+
+Reduce unnecessary borders, cards, and containers.
+
+Use structure through layout, not boxes.
+
+--------------------------------
+OPERATOR EFFICIENCY
+--------------------------------
+
+Assume users perform repeated tasks daily.
+
+Prioritize:
+
+- Speed of access
+- Low cognitive load
+- Predictable interaction locations
+- Minimal scrolling for key actions
+
+--------------------------------
+FINAL GOAL
+--------------------------------
+
+The console should feel like a professional system used continuously by operators managing critical infrastructure, not a collection of informative screens.
