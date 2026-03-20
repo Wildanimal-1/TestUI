@@ -44,7 +44,7 @@ export default function Security() {
       </div>
 
       {/* Authentication */}
-      <div className="border border-[var(--border-primary)] mb-4">
+      <div className="border border-[var(--border-primary)] mb-6">
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Authentication</h2>
         </div>
@@ -90,7 +90,7 @@ export default function Security() {
       </div>
 
       {/* Active Sessions */}
-      <div className="border border-[var(--border-primary)] mb-4">
+      <div className="border border-[var(--border-primary)] mb-6">
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-between">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Active Sessions</h2>
           <span className="text-[10px] font-mono text-[var(--text-tertiary)]">3 sessions</span>

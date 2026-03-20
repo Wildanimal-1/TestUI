@@ -46,31 +46,32 @@ export default function AccountProfile() {
         </button>
       </div>
 
-      {/* Avatar + identity summary */}
-      <div className="border border-[var(--border-primary)] mb-4">
-        <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
-          <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Identity</h2>
+      {/* Identity cluster: Identity + Organization side-by-side */}
+      <div className="grid grid-cols-2 gap-3 mb-6">
+        <div className="border border-[var(--border-primary)]">
+          <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
+            <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Identity</h2>
+          </div>
+          <div className="px-3 py-2.5 flex items-center justify-between border-b border-[var(--border-primary)] hover:bg-[var(--bg-secondary)]">
+            <span className="text-xs text-[var(--text-secondary)]">Profile photo</span>
+            <span className="text-xs font-mono text-[var(--text-tertiary)]">Not configured</span>
+          </div>
+          <div className="divide-y divide-[var(--border-primary)]">
+            {IDENTITY_ROWS.map((r) => (
+              <Row key={r.label} {...r} />
+            ))}
+          </div>
         </div>
-        <div className="px-3 py-2.5 flex items-center justify-between border-b border-[var(--border-primary)] hover:bg-[var(--bg-secondary)]">
-          <span className="text-xs text-[var(--text-secondary)]">Profile photo</span>
-          <span className="text-xs font-mono text-[var(--text-tertiary)]">Not configured</span>
-        </div>
-        <div className="divide-y divide-[var(--border-primary)]">
-          {IDENTITY_ROWS.map((r) => (
-            <Row key={r.label} {...r} />
-          ))}
-        </div>
-      </div>
 
-      {/* Organization */}
-      <div className="border border-[var(--border-primary)] mb-4">
-        <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
-          <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Organization</h2>
-        </div>
-        <div className="divide-y divide-[var(--border-primary)]">
-          {ORG_ROWS.map((r) => (
-            <Row key={r.label} {...r} />
-          ))}
+        <div className="border border-[var(--border-primary)]">
+          <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
+            <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Organization</h2>
+          </div>
+          <div className="divide-y divide-[var(--border-primary)]">
+            {ORG_ROWS.map((r) => (
+              <Row key={r.label} {...r} />
+            ))}
+          </div>
         </div>
       </div>
 

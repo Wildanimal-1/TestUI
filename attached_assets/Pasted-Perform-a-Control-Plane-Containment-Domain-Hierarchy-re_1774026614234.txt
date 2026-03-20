@@ -1,0 +1,140 @@
+Perform a Control-Plane Containment & Domain Hierarchy refinement pass.
+
+Goal: Ensure each page clearly communicates what the operator is managing, what actions apply to it, and what supporting context exists — without presenting all information at the same level.
+
+Constraints:
+
+• UI-only — no data, routing, or logic changes  
+• Preserve all existing components and pages  
+• No new features  
+• Maintain flat infrastructure design (no shadows, gradients, decorative effects)  
+• Keep placeholder/static content  
+• Do not remove command bars  
+
+---
+
+SECTION 1 — IDENTIFY THE PRIMARY DOMAIN OBJECT
+
+Each page must visually answer:
+
+“What system object am I operating on?”
+
+Examples:
+
+TrustProfile → Trust identity state  
+Verification → Verification status system  
+API Keys → Key resources  
+Security → Authentication configuration  
+
+Make the primary object unmistakable.
+
+Use:
+
+• Prominent placement  
+• Immediate visibility below command bar  
+• Clear grouping  
+
+---
+
+SECTION 2 — SEPARATE ACTION SURFACES FROM INFORMATION SURFACES
+
+Operators distinguish between:
+
+Control surfaces (things you change)  
+Inspection surfaces (things you read)
+
+Ensure:
+
+• Action-heavy areas feel interactive  
+• Read-only areas feel informational  
+• Controls are not visually mixed with audit data  
+
+---
+
+SECTION 3 — CONTEXT VS CORE DATA SEPARATION
+
+Distinguish:
+
+Core operational data  
+Supporting context  
+Constraints and limits  
+Historical information  
+
+Use spacing and grouping so context does not compete with primary data.
+
+---
+
+SECTION 4 — VISUAL CONTAINMENT OF RELATED INFORMATION
+
+Related elements should feel like a cohesive unit.
+
+Avoid:
+
+• Long unstructured vertical flows  
+• Sections that appear unrelated but visually identical  
+• “Document page” feeling  
+
+Group tightly related panels and increase separation between unrelated ones.
+
+---
+
+SECTION 5 — PRIMARY SURFACE FIRST, SUPPORTING SURFACES AFTER
+
+Reorder content so:
+
+1) Primary operational surface  
+2) Secondary related surfaces  
+3) Constraints / diagnostics  
+4) History / background  
+
+Avoid placing contextual information before core operational data.
+
+---
+
+SECTION 6 — CLEAR DIFFERENTIATION BETWEEN CONFIGURATION AND STATE
+
+Configuration = what can be changed  
+State = current system condition  
+
+Ensure they are not visually blended.
+
+---
+
+SECTION 7 — ELIMINATE REMAINING “FLAT STACK” EFFECT
+
+Reduce the feeling that:
+
+“All sections are equally important.”
+
+Introduce hierarchy through:
+
+• Spatial grouping  
+• Section ordering  
+• Subtle visual weighting  
+• Separation between clusters  
+
+---
+
+SECTION 8 — MAINTAIN CONTINUOUS OPERATOR FLOW
+
+An operator should be able to:
+
+Understand system state  
+Identify actions  
+Execute tasks  
+Review results  
+
+without searching across the page.
+
+---
+
+OUTPUT REQUIREMENT
+
+Refactor layouts so each page clearly communicates:
+
+✔ What is being managed  
+✔ What actions apply  
+✔ What context constrains it  
+✔ What information is secondary  
+
+The console should feel structured around system objects, not content blocks.

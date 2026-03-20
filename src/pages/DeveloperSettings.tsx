@@ -58,7 +58,7 @@ export default function DeveloperSettings() {
       </div>
 
       {/* Webhooks */}
-      <div className="border border-[var(--border-primary)] mb-4">
+      <div className="border border-[var(--border-primary)] mb-6">
         <SectionHeader title="Webhooks" />
         <div className="divide-y divide-[var(--border-primary)]">
           <div className="px-3 py-2.5 flex items-center justify-between hover:bg-[var(--bg-secondary)]">
@@ -101,41 +101,57 @@ export default function DeveloperSettings() {
         </div>
       </div>
 
-      {/* CORS */}
-      <div className="border border-[var(--border-primary)] mb-4">
-        <SectionHeader title="CORS — Allowed Origins" />
-        <table className="w-full text-xs">
-          <thead className="border-b border-[var(--border-primary)]">
-            <tr>
-              <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Origin</th>
-              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-28">Added</th>
-              <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-16">Action</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-[var(--border-primary)]">
-            {CORS_ORIGINS.map((o) => (
-              <tr key={o.origin} className="hover:bg-[var(--bg-secondary)]">
-                <td className="px-3 py-2 font-mono text-[var(--text-primary)]">{o.origin}</td>
-                <td className="px-3 py-2 text-right font-mono text-[var(--text-tertiary)]">{o.added}</td>
-                <td className="px-3 py-2 text-right">
-                  <button disabled className="text-[var(--text-tertiary)] opacity-40 cursor-not-allowed">
-                    <Trash2 className="w-3 h-3" />
-                  </button>
-                </td>
+      {/* Access Control cluster: CORS + IP Allowlist */}
+      <div className="grid grid-cols-2 gap-3 mb-6">
+        <div className="border border-[var(--border-primary)]">
+          <SectionHeader title="CORS — Allowed Origins" />
+          <table className="w-full text-xs">
+            <thead className="border-b border-[var(--border-primary)]">
+              <tr>
+                <th className="px-3 py-2 text-left font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Origin</th>
+                <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-20">Added</th>
+                <th className="px-3 py-2 text-right font-medium text-[var(--text-tertiary)] uppercase tracking-wider w-12">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="px-3 py-2 border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-end">
-          <button disabled className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] opacity-40 cursor-not-allowed">
-            <Plus className="w-3 h-3" />
-            Add origin
-          </button>
+            </thead>
+            <tbody className="divide-y divide-[var(--border-primary)]">
+              {CORS_ORIGINS.map((o) => (
+                <tr key={o.origin} className="hover:bg-[var(--bg-secondary)]">
+                  <td className="px-3 py-2 font-mono text-[var(--text-primary)] text-[10px]">{o.origin}</td>
+                  <td className="px-3 py-2 text-right font-mono text-[var(--text-tertiary)]">{o.added}</td>
+                  <td className="px-3 py-2 text-right">
+                    <button disabled className="text-[var(--text-tertiary)] opacity-40 cursor-not-allowed">
+                      <Trash2 className="w-3 h-3" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className="px-3 py-2 border-t border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-end">
+            <button disabled className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] opacity-40 cursor-not-allowed">
+              <Plus className="w-3 h-3" />
+              Add origin
+            </button>
+          </div>
+        </div>
+
+        <div className="border border-[var(--border-primary)]">
+          <SectionHeader title="IP Allowlist" />
+          <div className="px-3 py-2.5 flex items-center justify-between border-b border-[var(--border-primary)]">
+            <span className="text-xs text-[var(--text-secondary)]">Restriction mode</span>
+            <span className="text-xs font-mono text-[var(--text-tertiary)]">Disabled — all IPs permitted</span>
+          </div>
+          <div className="px-3 py-2 bg-[var(--bg-secondary)] flex items-center justify-end">
+            <button disabled className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] opacity-40 cursor-not-allowed">
+              <Plus className="w-3 h-3" />
+              Add range
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Rate Limits */}
-      <div className="border border-[var(--border-primary)] mb-4">
+      <div className="border border-[var(--border-primary)]">
         <SectionHeader title="Rate Limits" />
         <div className="divide-y divide-[var(--border-primary)]">
           {RATE_ROWS.map((r) => (
@@ -147,21 +163,6 @@ export default function DeveloperSettings() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* IP Allowlist */}
-      <div className="border border-[var(--border-primary)]">
-        <SectionHeader title="IP Allowlist" />
-        <div className="px-3 py-2.5 flex items-center justify-between border-b border-[var(--border-primary)]">
-          <span className="text-xs text-[var(--text-secondary)]">Restriction mode</span>
-          <span className="text-xs font-mono text-[var(--text-tertiary)]">Disabled — all IPs permitted</span>
-        </div>
-        <div className="px-3 py-2 bg-[var(--bg-secondary)] flex items-center justify-end">
-          <button disabled className="flex items-center gap-1 text-[10px] text-[var(--text-tertiary)] opacity-40 cursor-not-allowed">
-            <Plus className="w-3 h-3" />
-            Add range
-          </button>
         </div>
       </div>
     </div>
