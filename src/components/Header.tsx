@@ -7,9 +7,10 @@ import { useNavigation } from '../contexts/NavigationContext';
 interface HeaderProps {
   title: string;
   breadcrumbs?: { label: string }[];
+  onSignOut?: () => void;
 }
 
-export default function Header({ title, breadcrumbs }: HeaderProps) {
+export default function Header({ title, breadcrumbs, onSignOut }: HeaderProps) {
   const { theme, toggleTheme } = useTheme();
   const { system } = useSystem();
   const { setCurrentPage, setCurrentDomain } = useNavigation();
@@ -193,7 +194,10 @@ export default function Header({ title, breadcrumbs }: HeaderProps) {
                   ))}
                 </div>
                 <div className="border-t border-[var(--border-primary)] py-1">
-                  <button className="w-full text-left px-3 py-1.5 text-xs text-red-600 dark:text-red-400 hover:bg-[var(--bg-secondary)]">
+                  <button
+                    onClick={() => { setShowUserMenu(false); onSignOut?.(); }}
+                    className="w-full text-left px-3 py-1.5 text-xs text-red-600 dark:text-red-400 hover:bg-[var(--bg-secondary)]"
+                  >
                     Sign Out
                   </button>
                 </div>

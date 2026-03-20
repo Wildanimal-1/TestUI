@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext';
 import { SystemProvider } from './contexts/SystemContext';
@@ -6,6 +7,7 @@ import SecondarySidebar from './components/SecondarySidebar';
 import Header from './components/Header';
 import ContextBar from './components/ContextBar';
 import DetailPanel from './components/DetailPanel';
+import AuthPages from './pages/AuthPages';
 import Dashboard from './pages/Dashboard';
 import TrustProfile from './pages/TrustProfile';
 import TrustSignals from './pages/TrustSignals';
@@ -16,7 +18,7 @@ import Activity from './pages/Activity';
 import APIKeys from './pages/APIKeys';
 import PlaceholderPage from './pages/PlaceholderPage';
 
-function AppContent() {
+function AppContent({ onSignOut }: { onSignOut: () => void }) {
   const { currentPage, currentDomain } = useNavigation();
 
   const pageConfig: Record<string, { title: string; breadcrumbs?: { label: string }[]; content: React.ReactNode }> = {
@@ -118,7 +120,7 @@ function AppContent() {
         <SecondarySidebar items={trustNavItems} title="Trust Management" />
       )}
       <div className="flex-1 flex flex-col overflow-hidden min-w-0">
-        <Header title={config.title} breadcrumbs={config.breadcrumbs} />
+        <Header title={config.title} breadcrumbs={config.breadcrumbs} onSignOut={onSignOut} />
         <ContextBar />
         <main className="flex-1 overflow-y-auto">
           <div className="max-w-[1400px] mx-auto px-4 py-4">
@@ -132,13 +134,19 @@ function AppContent() {
 }
 
 function App() {
+  const [authenticated, setAuthenticated] = useState(false);
+
   return (
     <ThemeProvider>
-      <SystemProvider>
-        <NavigationProvider>
-          <AppContent />
-        </NavigationProvider>
-      </SystemProvider>
+      {authenticated ? (
+        <SystemProvider>
+          <NavigationProvider>
+            <AppContent onSignOut={() => setAuthenticated(false)} />
+          </NavigationProvider>
+        </SystemProvider>
+      ) : (
+        <AuthPages onEnterConsole={() => setAuthenticated(true)} />
+      )}
     </ThemeProvider>
   );
 }

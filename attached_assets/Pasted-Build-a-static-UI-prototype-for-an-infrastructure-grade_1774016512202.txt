@@ -1,0 +1,273 @@
+Build a static UI prototype for an infrastructure-grade control-plane console authentication flow.
+
+This project is a visual prototype only. It will later be used as a reference for a real production console, so the structure, layout, and UX must be clean, realistic, and reusable.
+
+⚠️ Strict constraints:
+— No backend
+— No database
+— No authentication logic
+— No API calls
+— No external services
+— No mock credentials
+— No simulated server responses
+— No tokens or sessions
+— No fake dashboards
+— Forms must NOT actually authenticate
+— This is purely UI + UX
+
+⸻
+
+🎯 Purpose of this prototype
+
+This UI will be used later with real data.
+Therefore:
+
+✔ Use placeholders only
+✔ Do NOT generate fake user information
+✔ Do NOT simulate real system behavior
+✔ Structure components so real data can replace placeholders later
+
+⸻
+
+🧭 Overall design direction
+
+Design for a serious infrastructure control plane used by engineers/operators.
+
+Think:
+
+* Stripe Dashboard
+* AWS Console
+* GitHub
+* Cloudflare
+* Supabase
+
+NOT:
+
+❌ Startup landing page
+❌ Consumer SaaS UI
+❌ Mobile-first app
+❌ Marketing product site
+
+⸻
+
+🖥 Pages to create
+
+Standalone routes:
+	1.	Login
+	2.	Sign up
+	3.	Forgot password
+	4.	Reset password
+	5.	Email verification notice
+
+Optional lightweight page:
+	6.	MFA / verification code entry
+
+⸻
+
+🚫 Console elements NOT included
+
+These auth pages must NOT include:
+
+❌ Main console sidebar
+❌ Control-plane navigation
+❌ Resource panels
+❌ System context bars
+
+They are focused workflows before entering the console.
+
+⸻
+
+🧱 Layout requirements
+
+✔ Focused workflow layout
+✔ Centered or structured panel
+✔ Clean hierarchy
+✔ Professional spacing
+✔ No oversized empty areas
+
+Important — DO NOT use “big boxed cards everywhere”
+
+Infrastructure platforms often avoid heavy card layouts.
+
+Avoid:
+
+❌ Thick containers
+❌ Decorative panels
+❌ Excessive borders
+❌ Marketing-style sections
+
+Prefer:
+
+✔ Flat surfaces
+✔ Thin dividers
+✔ Clean input groups
+✔ Minimal structure
+
+⸻
+
+🌗 Theme requirements
+
+Support BOTH:
+
+* Light theme
+* Dark theme
+
+Dark theme must:
+
+✔ Use near-black backgrounds (not gray)
+✔ Maintain strong contrast
+✔ Avoid glow effects
+✔ Avoid colorful accents
+
+⸻
+
+✍️ Form UX rules
+
+✔ Labels above inputs
+✔ Clear field grouping
+✔ Inline help text placeholders
+✔ Keyboard accessibility
+✔ Visible focus states
+✔ Disabled submit state
+✔ Loading spinner on submit
+✔ Visual-only validation states
+
+⸻
+
+🔐 Login page contents
+
+Include:
+
+* Email field
+* Password field
+* Forgot password link
+* Submit button
+* Optional “Remember me” checkbox
+* Link to Sign up
+
+Do NOT include:
+
+❌ Social login buttons
+❌ “Continue with Google”
+❌ OAuth providers
+
+⸻
+
+🧾 Sign up page contents
+
+* Email
+* Password
+* Confirm password
+* Terms checkbox
+* Submit button
+* Link to Login
+
+⸻
+
+✉️ Email verification page
+
+* Message that email was sent
+* Resend button (visual only)
+* Change email link (visual only)
+
+⸻
+
+🔁 Reset password page
+
+* New password
+* Confirm password
+* Submit button
+* Success state
+
+⸻
+
+🔢 MFA page (optional)
+
+* Code input (6 digits)
+* Submit button
+* Resend code link
+
+⸻
+
+🧪 Interaction behavior
+
+Provide visual states only:
+
+✔ Hover
+✔ Focus
+✔ Disabled
+✔ Loading
+✔ Success
+✔ Error placeholder
+
+No real logic.
+
+⸻
+
+🧭 Navigation behavior
+
+After submit:
+
+👉 Redirect to a simple placeholder dashboard page
+👉 Do NOT simulate authentication
+👉 Do NOT show user-specific data
+
+⸻
+
+📦 Placeholder rules (VERY IMPORTANT)
+
+Use neutral placeholders only.
+
+Allowed:
+
+✔ “user@example.com”
+✔ “Enter password”
+✔ “Verification code”
+
+NOT allowed:
+
+❌ Fake names
+❌ Fake activity
+❌ Fake trust scores
+❌ Fake metrics
+❌ Simulated system data
+
+⸻
+
+🎨 Visual tone
+
+Must look like a tool for managing critical systems.
+
+Avoid:
+
+❌ Bright colors
+❌ Gradients
+❌ Illustrations
+❌ Friendly marketing tone
+❌ Rounded playful UI
+❌ “AI demo” appearance
+
+Prefer:
+
+✔ Calm neutral palette
+✔ Structured typography
+✔ Clean borders
+✔ Functional appearance
+
+⸻
+
+🧠 Design goal
+
+The UI should:
+
+✔ Look handcrafted, not template-generated
+✔ Feel like part of a professional control plane
+✔ Be reusable for real production later
+✔ Not reveal full system capabilities
+✔ Not overwhelm with information
+
+⸻
+
+💎 Final requirement
+
+Build something that looks like a serious infrastructure login system — not a startup product demo.
