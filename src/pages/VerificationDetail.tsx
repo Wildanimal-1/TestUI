@@ -144,15 +144,22 @@ export default function VerificationDetail({ type }: Props) {
       )}
 
       {/* Action */}
-      <div className="flex items-center gap-2">
-        <button
-          disabled
-          className="px-3 py-1.5 text-xs font-medium bg-blue-600 dark:bg-blue-500 text-white opacity-50 cursor-not-allowed"
-          title="Verification not available in this environment"
-        >
-          {config.actionLabel}
-        </button>
-        <span className="text-[10px] text-[var(--text-tertiary)]">Not available in this environment</span>
+      <div className="border border-[var(--border-primary)]">
+        <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
+          <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Initiate Verification</h2>
+        </div>
+        <div className="px-3 py-2.5 flex items-center justify-between">
+          <div>
+            <div className="text-xs text-[var(--text-secondary)]">{config.actionLabel}</div>
+            <div className="text-[10px] font-mono text-[var(--text-tertiary)] mt-0.5">Read-only environment — action unavailable</div>
+          </div>
+          <button
+            disabled
+            className="px-3 py-1.5 text-xs font-medium bg-blue-600 dark:bg-blue-500 text-white opacity-40 cursor-not-allowed flex-shrink-0"
+          >
+            {config.actionLabel}
+          </button>
+        </div>
       </div>
     </div>
   );

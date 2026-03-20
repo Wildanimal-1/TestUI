@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertCircle, TrendingUp, TrendingDown, ArrowRight, RefreshCw, Download, ChevronDown } from 'lucide-react';
+import { AlertCircle, TrendingUp, TrendingDown, RefreshCw, Download, ChevronDown } from 'lucide-react';
 
 const ACTIVITY = [
   { event: 'Verification completed', resource: 'user_abc123', time: '2m ago', status: 'success' },
@@ -149,9 +149,7 @@ export default function Dashboard() {
         <div className="col-span-2 border border-[var(--border-primary)]">
           <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-between">
             <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Recent Activity</h2>
-            <button className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5">
-              View all <ArrowRight className="w-2.5 h-2.5" />
-            </button>
+            <span className="text-[10px] font-mono text-[var(--text-tertiary)]">5 of 1,247</span>
           </div>
           <table className="w-full text-xs">
             <tbody className="divide-y divide-[var(--border-primary)]">

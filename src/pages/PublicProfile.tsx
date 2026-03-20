@@ -62,7 +62,7 @@ export default function PublicProfile() {
           <div className="text-right flex-shrink-0">
             <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-0.5">Trust Score</div>
             <div className="text-xl font-semibold tabular-nums text-[var(--text-primary)]">—</div>
-            <div className="text-[10px] text-[var(--text-tertiary)]">No verifications</div>
+            <div className="text-[10px] font-mono text-[var(--text-tertiary)]">0 of 3 verifications</div>
           </div>
         </div>
       </div>
@@ -125,17 +125,14 @@ export default function PublicProfile() {
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)]">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Public URL</h2>
         </div>
-        <div className="px-3 py-3">
-          <div className="text-[10px] text-[var(--text-tertiary)] uppercase tracking-wider mb-1.5">Public profile URL</div>
-          <div className="flex items-center gap-2">
-            <code className="flex-1 px-2.5 py-1.5 bg-[var(--bg-secondary)] border border-[var(--border-primary)] text-xs font-mono text-[var(--text-secondary)]">
-              veravue.com/u/username
-            </code>
-            <button className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] flex-shrink-0">
+        <div className="px-3 py-2.5 flex items-center justify-between gap-3">
+          <code className="text-xs font-mono text-[var(--text-primary)]">veravue.com/u/username</code>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <button className="flex items-center gap-1.5 px-2 py-1 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
               <Copy className="w-3 h-3" />
               Copy
             </button>
-            <button className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)] flex-shrink-0">
+            <button className="flex items-center gap-1.5 px-2 py-1 text-xs border border-[var(--border-primary)] hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]">
               <Eye className="w-3 h-3" />
               Preview
             </button>

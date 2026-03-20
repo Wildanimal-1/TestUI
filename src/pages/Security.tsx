@@ -32,7 +32,15 @@ export default function Security() {
           <Plus className="w-3 h-3" />
           Add 2FA Method
         </button>
-        <span className="text-[10px] text-[var(--text-tertiary)]">Not available in this environment</span>
+        <div className="w-px h-4 bg-[var(--border-primary)] mx-1" />
+        <button
+          disabled
+          className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs border border-[var(--border-primary)] text-red-600 dark:text-red-400 opacity-40 cursor-not-allowed"
+        >
+          Revoke All Sessions
+        </button>
+        <div className="flex-1" />
+        <span className="text-[10px] font-mono text-[var(--text-tertiary)]">Read-only environment</span>
       </div>
 
       {/* Authentication */}
@@ -85,9 +93,7 @@ export default function Security() {
       <div className="border border-[var(--border-primary)] mb-4">
         <div className="px-3 py-2 border-b border-[var(--border-primary)] bg-[var(--bg-secondary)] flex items-center justify-between">
           <h2 className="text-[10px] font-medium text-[var(--text-tertiary)] uppercase tracking-wider">Active Sessions</h2>
-          <button disabled className="text-xs text-red-600 dark:text-red-400 opacity-40 cursor-not-allowed">
-            Revoke all
-          </button>
+          <span className="text-[10px] font-mono text-[var(--text-tertiary)]">3 sessions</span>
         </div>
         <table className="w-full text-xs">
           <thead className="border-b border-[var(--border-primary)]">

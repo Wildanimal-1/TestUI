@@ -1,0 +1,162 @@
+Perform a structural hierarchy and layout refinement pass to make this console feel like a true infrastructure control plane (Stripe / AWS / Cloudflare style).
+
+IMPORTANT CONSTRAINTS:
+
+• UI-only — do not change logic, routing, data, or behavior  
+• Do NOT add or remove pages  
+• Do NOT introduce new features  
+• Preserve AppShell, navigation, and domain structure  
+• Keep all data placeholder/static  
+• No gradients, shadows, glass effects, or decorative styling  
+• No consumer SaaS aesthetics  
+
+PRIMARY GOAL:
+
+Fix information stacking, alignment, grouping, and scanability so pages feel engineered and operational — not like generic dashboards.
+
+---
+
+SECTION 1 — STRONG SECTION SEPARATION
+
+Currently many pages read as one continuous block.
+
+Refactor so major sections feel independent and purposeful.
+
+• Add clear vertical spacing between major sections  
+• Use subtle section headers (uppercase, muted)  
+• Avoid large bordered cards — use structure instead  
+• Each section should answer one operational question  
+• Prevent unrelated content from appearing visually connected  
+
+Goal: Operators should instantly understand page structure.
+
+---
+
+SECTION 2 — DEFINITION-LIST STYLE LAYOUTS
+
+Replace free-form text layouts with structured label/value grids wherever appropriate.
+
+Use patterns like:
+
+Label | Value  
+Setting | Status  
+Property | Configuration  
+Metric | Measurement  
+
+Rules:
+
+• Labels = muted, small text  
+• Values = higher contrast  
+• Technical strings = monospace  
+• Multi-line descriptions go BELOW values, not inline  
+• Maintain consistent vertical alignment  
+
+---
+
+SECTION 3 — COLUMN DISCIPLINE
+
+Many elements currently drift left or right.
+
+Enforce a consistent reading grid:
+
+• Left column = labels / identities / primary descriptors  
+• Middle = values / metadata  
+• Right column = actions / status indicators  
+• Numeric values right-aligned  
+• Actions consistently right-aligned  
+
+No floating buttons inside content.
+
+---
+
+SECTION 4 — INFORMATION DENSITY WITHOUT CLUTTER
+
+Make the interface dense but calm.
+
+• Reduce unnecessary vertical padding inside rows  
+• Use compact row heights consistently  
+• Avoid large empty gaps  
+• Do not compress to the point of crowding  
+• Keep rhythm consistent across all pages  
+
+---
+
+SECTION 5 — VISUAL WEIGHT DIFFERENTIATION
+
+Right now most information has equal emphasis.
+
+Introduce hierarchy:
+
+Primary information:
+• High contrast
+• Slightly larger text
+• Clear placement
+
+Secondary metadata:
+• Muted color
+• Smaller text
+• Positioned beneath primary values
+
+Tertiary details:
+• Very subtle
+• Only visible when scanning closely
+
+---
+
+SECTION 6 — OPERATOR-STYLE ACTION PLACEMENT
+
+Actions should feel deliberate, not scattered.
+
+• Primary actions live in command bars only  
+• Row-level actions belong at the far right  
+• Avoid inline links mixed with data text  
+• Do not place buttons inside section headers  
+• Prevent action overload on overview pages  
+
+---
+
+SECTION 7 — SYSTEM SURFACE FEEL
+
+Shift presentation from “profile editing” to “system inspection”.
+
+Emphasize:
+
+• Status
+• Configuration
+• State
+• Auditability
+• Capability
+
+De-emphasize:
+
+• Friendly messaging
+• Narrative descriptions
+• Marketing-style language
+• Empty decorative UI
+
+---
+
+SECTION 8 — REMOVE REMAINING CONSUMER UI PATTERNS
+
+Eliminate any leftover elements that resemble typical SaaS dashboards:
+
+• Centered empty states  
+• Friendly helper sentences  
+• Oversized headings  
+• Profile-style layouts  
+• Uneven component sizing  
+
+---
+
+OUTPUT REQUIREMENT
+
+Refactor existing pages so the console feels like:
+
+✔ A mission-critical system control interface  
+✔ Built for operators, not casual users  
+✔ Highly scannable  
+✔ Structurally disciplined  
+✔ Calm and authoritative  
+✔ Clearly segmented by function  
+
+Think: managing infrastructure, not browsing a product dashboard.
