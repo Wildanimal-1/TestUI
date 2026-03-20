@@ -1,14 +1,20 @@
 import { ThemeProvider } from './contexts/ThemeContext';
 import { NavigationProvider, useNavigation } from './contexts/NavigationContext';
-import MainLayout from './components/MainLayout';
+import Sidebar from './components/Sidebar';
+import SecondarySidebar from './components/SecondarySidebar';
+import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
 import TrustProfile from './pages/TrustProfile';
+import TrustSignals from './pages/TrustSignals';
+import TrustTimeline from './pages/TrustTimeline';
+import TrustIntegrity from './pages/TrustIntegrity';
+import TrustCapabilities from './pages/TrustCapabilities';
 import Activity from './pages/Activity';
 import APIKeys from './pages/APIKeys';
 import PlaceholderPage from './pages/PlaceholderPage';
 
 function AppContent() {
-  const { currentPage } = useNavigation();
+  const { currentPage, currentDomain } = useNavigation();
 
   const pageConfig: Record<string, { title: string; breadcrumbs?: { label: string }[]; content: React.ReactNode }> = {
     dashboard: {
@@ -27,18 +33,28 @@ function AppContent() {
     },
     'trust-profile': {
       title: 'Trust Profile',
-      breadcrumbs: [{ label: 'Trust' }, { label: 'Trust Profile' }],
+      breadcrumbs: [{ label: 'Trust' }, { label: 'Profile' }],
       content: <TrustProfile />,
     },
-    timeline: {
-      title: 'Timeline',
-      breadcrumbs: [{ label: 'Trust' }, { label: 'Timeline' }],
-      content: <PlaceholderPage title="Trust Timeline" description="View historical trust score changes and events" />,
+    'trust-signals': {
+      title: 'Trust Signals',
+      breadcrumbs: [{ label: 'Trust' }, { label: 'Signals' }],
+      content: <TrustSignals />,
     },
-    integrity: {
+    'trust-timeline': {
+      title: 'Trust Timeline',
+      breadcrumbs: [{ label: 'Trust' }, { label: 'Timeline' }],
+      content: <TrustTimeline />,
+    },
+    'trust-integrity': {
       title: 'Integrity',
       breadcrumbs: [{ label: 'Trust' }, { label: 'Integrity' }],
-      content: <PlaceholderPage title="Integrity Monitoring" description="Monitor system integrity and security status" />,
+      content: <TrustIntegrity />,
+    },
+    'trust-capabilities': {
+      title: 'Capabilities',
+      breadcrumbs: [{ label: 'Trust' }, { label: 'Capabilities' }],
+      content: <TrustCapabilities />,
     },
     'developers-overview': {
       title: 'Developer Overview',
@@ -82,12 +98,31 @@ function AppContent() {
     },
   };
 
+  const trustNavItems = [
+    { id: 'trust-profile', label: 'Profile' },
+    { id: 'trust-signals', label: 'Signals' },
+    { id: 'trust-timeline', label: 'Timeline' },
+    { id: 'trust-integrity', label: 'Integrity' },
+    { id: 'trust-capabilities', label: 'Capabilities' },
+  ];
+
   const config = pageConfig[currentPage] || pageConfig.dashboard;
 
   return (
-    <MainLayout title={config.title} breadcrumbs={config.breadcrumbs}>
-      {config.content}
-    </MainLayout>
+    <div className="flex h-screen bg-[var(--bg-secondary)]">
+      <Sidebar />
+      {currentDomain === 'trust' && (
+        <SecondarySidebar items={trustNavItems} title="Trust Management" />
+      )}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Header title={config.title} breadcrumbs={config.breadcrumbs} />
+        <main className="flex-1 overflow-y-auto">
+          <div className="max-w-[1400px] mx-auto px-4 py-4">
+            {config.content}
+          </div>
+        </main>
+      </div>
+    </div>
   );
 }
 

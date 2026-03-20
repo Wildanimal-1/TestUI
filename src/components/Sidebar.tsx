@@ -4,8 +4,6 @@ import {
   CheckCircle2,
   Activity,
   Shield,
-  Clock,
-  FileCheck,
   Code,
   Key,
   Settings,
@@ -19,6 +17,7 @@ interface NavItem {
   id: string;
   label: string;
   icon: React.ElementType;
+  domain?: string;
 }
 
 interface NavSection {
@@ -38,9 +37,7 @@ const navigation: NavSection[] = [
   {
     label: 'TRUST',
     items: [
-      { id: 'trust-profile', label: 'Trust Profile', icon: Shield },
-      { id: 'timeline', label: 'Timeline', icon: Clock },
-      { id: 'integrity', label: 'Integrity', icon: FileCheck },
+      { id: 'trust-profile', label: 'Trust', icon: Shield, domain: 'trust' },
     ],
   },
   {
@@ -62,7 +59,16 @@ const navigation: NavSection[] = [
 ];
 
 export default function Sidebar() {
-  const { currentPage, setCurrentPage } = useNavigation();
+  const { currentPage, currentDomain, setCurrentPage, setCurrentDomain } = useNavigation();
+
+  const handleNavigation = (item: NavItem) => {
+    setCurrentPage(item.id as any);
+    if (item.domain) {
+      setCurrentDomain(item.domain as any);
+    } else {
+      setCurrentDomain(null);
+    }
+  };
 
   return (
     <aside className="w-52 bg-[var(--bg-primary)] border-r border-[var(--border-primary)] flex flex-col h-screen">
@@ -86,11 +92,11 @@ export default function Sidebar() {
             <div>
               {section.items.map((item) => {
                 const Icon = item.icon;
-                const isActive = currentPage === item.id;
+                const isActive = item.domain ? currentDomain === item.domain : currentPage === item.id;
                 return (
                   <button
                     key={item.id}
-                    onClick={() => setCurrentPage(item.id as any)}
+                    onClick={() => handleNavigation(item)}
                     className={`
                       w-full flex items-center gap-2 px-3 py-1.5 text-sm
                       transition-colors

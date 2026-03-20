@@ -1,12 +1,16 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
+type DomainId = 'core' | 'trust' | 'developers' | 'account' | 'admin';
+
 type PageId =
   | 'dashboard'
   | 'verification'
   | 'activity'
   | 'trust-profile'
-  | 'timeline'
-  | 'integrity'
+  | 'trust-signals'
+  | 'trust-timeline'
+  | 'trust-integrity'
+  | 'trust-capabilities'
   | 'developers-overview'
   | 'api-keys'
   | 'settings'
@@ -18,16 +22,19 @@ type PageId =
 
 interface NavigationContextType {
   currentPage: PageId;
+  currentDomain: DomainId | null;
   setCurrentPage: (page: PageId) => void;
+  setCurrentDomain: (domain: DomainId | null) => void;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
 export function NavigationProvider({ children }: { children: ReactNode }) {
   const [currentPage, setCurrentPage] = useState<PageId>('dashboard');
+  const [currentDomain, setCurrentDomain] = useState<DomainId | null>(null);
 
   return (
-    <NavigationContext.Provider value={{ currentPage, setCurrentPage }}>
+    <NavigationContext.Provider value={{ currentPage, currentDomain, setCurrentPage, setCurrentDomain }}>
       {children}
     </NavigationContext.Provider>
   );
