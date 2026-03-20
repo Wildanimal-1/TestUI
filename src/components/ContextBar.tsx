@@ -30,7 +30,7 @@ export default function ContextBar() {
     system.services.database === 'ok';
 
   return (
-    <div className="bg-[var(--bg-primary)] border-b border-[var(--border-primary)] flex items-center px-4 h-7 shrink-0 text-[11px] select-none">
+    <div className="border-b border-[var(--border-primary)] flex items-center px-4 h-7 shrink-0 text-[11px] select-none opacity-[1] bg-[#ffffff00]">
       {/* Left: Account + Env scope */}
       <div className="flex items-center gap-0 text-[var(--text-tertiary)]">
         <span className="font-mono">{system.account.orgId}</span>
